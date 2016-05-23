@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">TrainUpApplication</string>
+
+    <string-array name="exc_spyna">
+        <item>Станова тяга</item>
+        <item>Тяга штанги до пояса в нахилі</item>
+        <item>Тяга гантелі до пояса в нахилі однією рукою</item>
+        <item>Шраги зі штангою</item>
+        <item>Шраги з гантелями</item>
+        <item>Тяга до грудей верхнього блоку сидячи</item>
+        <item>Тяга блоку за голову сидячи</item>
+        <item>Підтягування на турніку широким хватом</item>
+        <item>Підтягування вузьким хватом</item>
+        <item>Гіперекстензія</item>
+        <item>Тяга блоку до живота сидячи</item>
+        <item>Тяга Т-штанги</item>
+    </string-array>
+
+    <string-array name="exc_plechi">
+        <item>Тяга штанги до підборіддя</item>
+        <item>Жим гантелей сидячи</item>
+        <item>Жим штанги стоячи</item>
+        <item>Жим штанги з за голови</item>
+        <item>Розводки рук з гантелями в сторони стоячи</item>
+        <item>Розведення рук з гантелями в нахилі стоячи</item>
+        <item>Армійський жим</item>
+    </string-array>
+
+    <string-array name="exc_hrudy">
+        <item>Віджимання на брусах</item>
+        <item>Жим штанги лежачи</item>
+        <item>Жим штанги на лавці зі звортнім нахилом</item>
+        <item>Жим гантелей лежачи</item>
+        <item>Жим гантелей лежачи під кутом</item>
+        <item>Розводки гантелей лежачи на лавці</item>
+        <item>Зведення рук в тренажері</item>
+        <item>Кросовер зведення рук на тренажерному блоці</item>
+        <item>Пуловер з гантелею</item>
+        <item>Хаммер</item>
+    </string-array>
+
+    <string-array name="exc_pres">
+        <item>Скручування на похилій лавці</item>
+        <item>Підйом ніг висячи на турніку</item>
+        <item>Згинання тіла на верхньому блоці</item>
+        <item>Підйом ніг на похилій лавці</item>
+        <item>Повороти тулуба в положенні сидячи</item>
+    </string-array>
+
+    <string-array name="exc_biceps">
+
+        <item>Підтягування на турніку зворотнім хватом на біцепс</item>
+        <item>Згинання рук зі штангою зворотнім хватом</item>
+        <item>Поперемінний підйом гантелей сидячи</item>
+        <item>Пеперемінний підйом гантелей на біцепс молотки</item>
+        <item>Підйом штанги на біцепс</item>
+        <item>Жим на лавці Скотта</item>
+        <item>Підйом гантелей на біцепс</item>
+        <item>Підйом гантель сидячи</item>
+    </string-array>
+    <string-array name="exc_triceps">
+        <item>Французький жим сидячи</item>
+        <item>Французький жим лежачи</item>
+        <item>Віджимання на брусах</item>
+        <item>Віджимання від лавки</item>
+        <item>Жим лежачи вузьким хватом</item>
+        <item>Розгинання рук на верхньому блоці стоячи</item>
+        <item>Розгинання руки із за голови з гантеллю</item>
+    </string-array>
+    <string-array name="exc_peredplicia">
+        <item>Скручування на похилій лавці</item>
+        <item>Підйом ніг висячи на турніку</item>
+        <item>Згинання тіла на верхньому блоці</item>
+        <item>Підйом ніг на похилій лавці</item>
+        <item>Повороти тулуба в положенні сидячи</item>
+    </string-array>
+    <string name="title_activity_excercise_description">ExcerciseDescriptionActivity</string>
+    <string name="mondey">Понеділок</string>
+    <string name="tuesday">Вівторок</string>
+    <string name="wednesday">Середа</string>
+    <string name="thursday">Четвер</string>
+    <string name="friday">П`ятниця</string>
+    <string name="saturday">Субота</string>
+    <string name="sunday">Неділя</string>
+    <string name="action_settings">Settings</string>
+
+
+</resources>

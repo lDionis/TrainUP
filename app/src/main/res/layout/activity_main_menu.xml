@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/mnbg"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.ldionis.trainupapplication.MainMenuActivity">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        android:clickable="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Вправи"
+        android:id="@+id/exc_button"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:background="@android:color/transparent"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="30dp"
+        android:onClick="onButtonClick"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Програми тренувань"
+        android:id="@+id/prg_button"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:background="@android:color/transparent"
+        android:layout_marginTop="240dp"
+        android:layout_marginLeft="30dp"
+        android:onClick="onButtonClick1"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Прийом води"
+        android:id="@+id/water_button"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:background="@android:color/transparent"
+        android:layout_marginTop="280dp"
+        android:layout_marginLeft="30dp"
+        android:onClick="onButtonClick1f"/>
+
+</RelativeLayout>
