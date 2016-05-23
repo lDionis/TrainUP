@@ -26,8 +26,9 @@ import java.util.ArrayList;
  */
 public class WeekdayPagerAdapter extends PagerAdapter {
    public ArrayList<String>  selectedItems=new ArrayList<>();
-private  String strName;
     private Context mContext;
+    public static String ffggg;
+    private EditText edittext = null;
   //  DatabaseHelper myDataBaseHelper = new DatabaseHelper(mContext);
     public WeekdayPagerAdapter(Context context) {
         mContext = context;
@@ -61,7 +62,6 @@ private  String strName;
 
     }
 
-
     @Override
     //тут заповнюємо ліст і решту всього
     public Object instantiateItem(ViewGroup collection, int position) {
@@ -69,43 +69,52 @@ private  String strName;
 
       final  LayoutInflater inflater = LayoutInflater.from(mContext);
 
-        ViewGroup layout = (ViewGroup) inflater.inflate(customPagerEnum.getLayoutResId(), collection, false);
+        final ViewGroup layout = (ViewGroup) inflater.inflate(customPagerEnum.getLayoutResId(), collection, false);
         collection.addView(layout);
-        //------------------------
+        final ViewGroup prname = (ViewGroup) inflater.inflate(R.layout.activity_add_program, null);
+        collection.addView(prname);
+        //----
         final String[] items = {"Жим лежачи","Хаммер","Станова тяга","Французький жим"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(mContext, R.layout.row_layout, R.id.txt_lan,items);
        //final EditText pr_name=(EditText)layout.findViewById(R.id.programName);
         //----
 
+
         final ListView chl=(ListView)layout.findViewById(R.id.checkable_list);
+
         chl.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         //----
         chl.setAdapter(adapter);
         chl.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             public  void onItemClick(AdapterView<?> parent, View view, final int position, long id)
             {
-                final String selectedItem=(String)(chl.getItemAtPosition(position));
+                final String selectedItem=((TextView)view).getText().toString();
+                //final String pr_name=((EditText)view).getText().toString();
                 //check / uncheck item
                 if(selectedItems.contains(selectedItem))
                 {
                     selectedItems.remove(selectedItem);
                 }
                 else selectedItems.add(selectedItem);
+
                 final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(mContext);
+
                 final ViewGroup dialogView = (ViewGroup) inflater.inflate(R.layout.addingwr_dialog, null);
 
+                final EditText ffd=(EditText)prname.findViewById(R.id.programName);
                 dialogBuilder.setView(dialogView);
-
+                 ffggg = ffd.getText().toString();
                 final EditText edt = (EditText) dialogView.findViewById(R.id.email);
                 final EditText edtX = (EditText) dialogView.findViewById(R.id.password);
 
-                ;
+
+
                 dialogBuilder.setTitle("Введіть дані вправи");
                 dialogBuilder.setPositiveButton("Зберегти", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
-
                         //do something with edt.getText().toString();
-                        String txt ="Вправа: "+selectedItem+"\nВага: " + edt.getText().toString()+"\nКількість повторень" + edtX.getText().toString();
+
+                        String txt ="Програма:"+ffggg+"\nВправа: "+selectedItem+"\nВага: " + edt.getText().toString()+"\nКількість повторень" + edtX.getText().toString();
 
                         Toast.makeText(mContext,txt,Toast.LENGTH_LONG).show();
                         // myDataBaseHelper.insertProgramItem();
@@ -127,17 +136,12 @@ private  String strName;
 
         });
 
-       /* Button bt= (Button)layout.findViewById(R.id.bt);
+        /*Button bt= (Button)layout.findViewById(R.id.bt);
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                String items="";
-                for(String item:selectedItems)
-                {
-                    items+="-"+item+"\n";
-                }
-                Toast.makeText(mContext,"\nYou have selected \n"+items,Toast.LENGTH_SHORT).show();
+                String pg =progName.getText().toString();
+                Toast.makeText(mContext,"\nYou have selected \n"+pg,Toast.LENGTH_SHORT).show();
             }
         });*/
 
