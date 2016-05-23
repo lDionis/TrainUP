@@ -2,6 +2,7 @@ package com.ldionis.trainupapplication.adapter;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ldionis.trainupapplication.ExcerciseDescriptionActivity;
 import com.ldionis.trainupapplication.R;
 import com.ldionis.trainupapplication.database.DatabaseHelper;
 import com.ldionis.trainupapplication.model.AddProgramActivity;
@@ -113,8 +115,8 @@ public class WeekdayPagerAdapter extends PagerAdapter {
                 dialogBuilder.setPositiveButton("Зберегти", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         //do something with edt.getText().toString();
-
-                        String txt ="Програма:"+ffggg+"\nВправа: "+selectedItem+"\nВага: " + edt.getText().toString()+"\nКількість повторень" + edtX.getText().toString();
+                        String ggg=ffggg;
+                        String txt ="Програма:"+ggg+"\nВправа: "+selectedItem+"\nВага: " + edt.getText().toString()+"\nКількість повторень" + edtX.getText().toString();
 
                         Toast.makeText(mContext,txt,Toast.LENGTH_LONG).show();
                         // myDataBaseHelper.insertProgramItem();
