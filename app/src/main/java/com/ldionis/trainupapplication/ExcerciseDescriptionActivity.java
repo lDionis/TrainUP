@@ -36,7 +36,7 @@ public class ExcerciseDescriptionActivity extends AppCompatActivity {
     }
 
     public void animateImage(){
-        BitmapDrawable frame1 = (BitmapDrawable)getResources().getDrawable(R.drawable.ttiaga1);
+        BitmapDrawable frame1 = (BitmapDrawable)getResources().getDrawable(R.drawable.logo);
         BitmapDrawable frame2 = (BitmapDrawable)getResources().getDrawable(R.drawable.ttiaga2);
 
         AnimationDrawable mAnimation = new AnimationDrawable();
