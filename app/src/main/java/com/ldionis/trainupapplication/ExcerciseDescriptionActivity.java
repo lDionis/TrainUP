@@ -29,6 +29,7 @@ public class ExcerciseDescriptionActivity extends AppCompatActivity {
         myDataBaseHelper.closeDatabase();
         TextView tv = (TextView)findViewById(R.id.exc_description_text);
         tv.setText(text);
+        //----
         animateImage();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
