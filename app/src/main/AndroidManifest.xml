@@ -28,11 +28,11 @@
         </activity>
         <activity
             android:name=".ExcercisesActivity"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".model.ProgramsActivity"
-            android:theme="@style/AppTheme"></activity>
-        <activity android:name=".model.AddProgramActivity"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".model.AddProgramActivity" />
     </application>
 
 </manifest>

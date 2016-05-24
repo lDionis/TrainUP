@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +32,6 @@ public class WeekdayPagerAdapter extends PagerAdapter {
    public ArrayList<String>  selectedItems=new ArrayList<>();
     private Context mContext;
     public static String ffggg;
-    private EditText edittext = null;
   //  DatabaseHelper myDataBaseHelper = new DatabaseHelper(mContext);
     public WeekdayPagerAdapter(Context context) {
         mContext = context;
@@ -70,7 +71,6 @@ public class WeekdayPagerAdapter extends PagerAdapter {
         CustomPagerEnum customPagerEnum = CustomPagerEnum.values()[position];
 
       final  LayoutInflater inflater = LayoutInflater.from(mContext);
-
         final ViewGroup layout = (ViewGroup) inflater.inflate(customPagerEnum.getLayoutResId(), collection, false);
         collection.addView(layout);
         final ViewGroup prname = (ViewGroup) inflater.inflate(R.layout.activity_add_program, null);
@@ -78,18 +78,15 @@ public class WeekdayPagerAdapter extends PagerAdapter {
         //----
         final String[] items = {"Жим лежачи","Хаммер","Станова тяга","Французький жим"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(mContext, R.layout.row_layout, R.id.txt_lan,items);
-       //final EditText pr_name=(EditText)layout.findViewById(R.id.programName);
-        //----
-
-
         final ListView chl=(ListView)layout.findViewById(R.id.checkable_list);
 
         chl.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         //----
         chl.setAdapter(adapter);
         chl.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-            public  void onItemClick(AdapterView<?> parent, View view, final int position, long id)
+            public  void onItemClick(AdapterView<?> parent, final View view, final int position, long id)
             {
+
                 final String selectedItem=((TextView)view).getText().toString();
                 //final String pr_name=((EditText)view).getText().toString();
                 //check / uncheck item
@@ -102,22 +99,21 @@ public class WeekdayPagerAdapter extends PagerAdapter {
                 final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(mContext);
 
                 final ViewGroup dialogView = (ViewGroup) inflater.inflate(R.layout.addingwr_dialog, null);
-
                 final EditText ffd=(EditText)prname.findViewById(R.id.programName);
                 dialogBuilder.setView(dialogView);
-                 ffggg = ffd.getText().toString();
+
+                ffggg = ffd.getText().toString();
                 final EditText edt = (EditText) dialogView.findViewById(R.id.email);
                 final EditText edtX = (EditText) dialogView.findViewById(R.id.password);
 
-
-
                 dialogBuilder.setTitle("Введіть дані вправи");
+
                 dialogBuilder.setPositiveButton("Зберегти", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         //do something with edt.getText().toString();
                         String ggg=ffggg;
-                        String txt ="Програма:"+ggg+"\nВправа: "+selectedItem+"\nВага: " + edt.getText().toString()+"\nКількість повторень" + edtX.getText().toString();
-
+                        String txt ="Програма:"+ffggg+"\nВправа: "+selectedItem+"\nВага: " + edt.getText().toString()+"\nКількість повторень" + edtX.getText().toString();
+                        //Toast.makeText(mContext,"Програма:"+ffggg,Toast.LENGTH_LONG).show();
                         Toast.makeText(mContext,txt,Toast.LENGTH_LONG).show();
                         // myDataBaseHelper.insertProgramItem();
                     }
