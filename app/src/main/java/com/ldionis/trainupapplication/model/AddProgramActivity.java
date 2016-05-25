@@ -12,17 +12,26 @@ import android.widget.Toast;
 import com.ldionis.trainupapplication.ExcerciseDescriptionActivity;
 import com.ldionis.trainupapplication.R;
 import com.ldionis.trainupapplication.adapter.WeekdayPagerAdapter;
+import com.ldionis.trainupapplication.database.DatabaseHelper;
 
-public class AddProgramActivity extends AppCompatActivity {
+public class AddProgramActivity extends AppCompatActivity implements OnAddProgramListener {
+
+    EditText programName;
+
+    @Override
+    public void onAddDayExercise(String exercise, Integer day, String weight, String repeats) {
+          DatabaseHelper myDataBaseHelper = new DatabaseHelper(this);
+        myDataBaseHelper.insertProgramItem(programName.getText().toString(), day, exercise, weight,repeats);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_program);
-
+        programName = (EditText)findViewById(R.id.programName);
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setOffscreenPageLimit(7);
-        viewPager.setAdapter(new WeekdayPagerAdapter(this));
+        viewPager.setAdapter(new WeekdayPagerAdapter(this, this));
 
     }
 

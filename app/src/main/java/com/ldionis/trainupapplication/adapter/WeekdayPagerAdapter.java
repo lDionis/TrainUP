@@ -22,6 +22,7 @@ import com.ldionis.trainupapplication.ExcerciseDescriptionActivity;
 import com.ldionis.trainupapplication.R;
 import com.ldionis.trainupapplication.database.DatabaseHelper;
 import com.ldionis.trainupapplication.model.AddProgramActivity;
+import com.ldionis.trainupapplication.model.OnAddProgramListener;
 
 import java.util.ArrayList;
 
@@ -31,10 +32,11 @@ import java.util.ArrayList;
 public class WeekdayPagerAdapter extends PagerAdapter {
    public ArrayList<String>  selectedItems=new ArrayList<>();
     private Context mContext;
-    public static String ffggg;
-  //  DatabaseHelper myDataBaseHelper = new DatabaseHelper(mContext);
-    public WeekdayPagerAdapter(Context context) {
+    private OnAddProgramListener listener;
+
+    public WeekdayPagerAdapter(Context context, OnAddProgramListener listener) {
         mContext = context;
+        this.listener = listener;
     }
     public enum CustomPagerEnum {
 
@@ -68,13 +70,12 @@ public class WeekdayPagerAdapter extends PagerAdapter {
     @Override
     //тут заповнюємо ліст і решту всього
     public Object instantiateItem(ViewGroup collection, int position) {
-        CustomPagerEnum customPagerEnum = CustomPagerEnum.values()[position];
+      final   CustomPagerEnum customPagerEnum = CustomPagerEnum.values()[position];
 
       final  LayoutInflater inflater = LayoutInflater.from(mContext);
         final ViewGroup layout = (ViewGroup) inflater.inflate(customPagerEnum.getLayoutResId(), collection, false);
         collection.addView(layout);
-        final ViewGroup prname = (ViewGroup) inflater.inflate(R.layout.activity_add_program, null);
-        collection.addView(prname);
+
         //----
         final String[] items = {"Жим лежачи","Хаммер","Станова тяга","Французький жим"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(mContext, R.layout.row_layout, R.id.txt_lan,items);
@@ -88,7 +89,6 @@ public class WeekdayPagerAdapter extends PagerAdapter {
             {
 
                 final String selectedItem=((TextView)view).getText().toString();
-                //final String pr_name=((EditText)view).getText().toString();
                 //check / uncheck item
                 if(selectedItems.contains(selectedItem))
                 {
@@ -99,23 +99,27 @@ public class WeekdayPagerAdapter extends PagerAdapter {
                 final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(mContext);
 
                 final ViewGroup dialogView = (ViewGroup) inflater.inflate(R.layout.addingwr_dialog, null);
-                final EditText ffd=(EditText)prname.findViewById(R.id.programName);
                 dialogBuilder.setView(dialogView);
 
-                ffggg = ffd.getText().toString();
                 final EditText edt = (EditText) dialogView.findViewById(R.id.email);
                 final EditText edtX = (EditText) dialogView.findViewById(R.id.password);
-
                 dialogBuilder.setTitle("Введіть дані вправи");
-
                 dialogBuilder.setPositiveButton("Зберегти", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        //do something with edt.getText().toString();
-                        String ggg=ffggg;
-                        String txt ="Програма:"+ffggg+"\nВправа: "+selectedItem+"\nВага: " + edt.getText().toString()+"\nКількість повторень" + edtX.getText().toString();
-                        //Toast.makeText(mContext,"Програма:"+ffggg,Toast.LENGTH_LONG).show();
-                        Toast.makeText(mContext,txt,Toast.LENGTH_LONG).show();
-                        // myDataBaseHelper.insertProgramItem();
+                        int day_of_week=0;
+                        switch (mContext.getString(customPagerEnum.getTitleResId()))
+                        {
+                            case "Понеділок" : day_of_week=1;break;
+                            case "Вівторок" : day_of_week=2;break;
+                            case "Середа" : day_of_week=3;break;
+                            case "Четвер" : day_of_week=4;break;
+                            case "П'ятниця" : day_of_week=5;break;
+                            case "Субота" : day_of_week=6;break;
+                            case "Неділя" : day_of_week=7;break;
+                        }
+                        if (listener != null) {
+                            listener.onAddDayExercise(selectedItem, day_of_week, edt.getText().toString(), edtX.getText().toString());
+                        }
                     }
                 });
                 dialogBuilder.setNegativeButton("Відмінити", new DialogInterface.OnClickListener() {
@@ -133,15 +137,6 @@ public class WeekdayPagerAdapter extends PagerAdapter {
             }
 
         });
-
-        /*Button bt= (Button)layout.findViewById(R.id.bt);
-        bt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String pg =progName.getText().toString();
-                Toast.makeText(mContext,"\nYou have selected \n"+pg,Toast.LENGTH_SHORT).show();
-            }
-        });*/
 
         TextView ff=(TextView) layout.findViewById(R.id.textViewX);
         ff.setText(mContext.getString(customPagerEnum.getTitleResId()));

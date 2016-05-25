@@ -8,16 +8,22 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.ldionis.trainupapplication.model.AddProgramActivity">
-<EditText
-    android:id="@+id/programName"
-    android:hint="Назва програми"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="VSAAAAAAa"
-    android:inputType="text"/>
+
+
+        <EditText
+            android:id="@+id/programName"
+            android:hint="Назва програми"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textNoSuggestions"
+            android:singleLine="true"
+            android:focusableInTouchMode="true"
+            />
+
+
 
     <android.support.v4.view.ViewPager
-        android:layout_below="@+id/programName"
+        android:layout_below="@id/programName"
         android:id="@+id/viewpager"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"

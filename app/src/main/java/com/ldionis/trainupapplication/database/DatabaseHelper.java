@@ -58,9 +58,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void insertProgramItem(String programName) {
+    public void insertProgramItem(String programName, Integer day, String exercise, String weight,String repeats) {
         SQLiteDatabase db  = this.getReadableDatabase();
-        String sql="INSERT INTO TrainingPrograms(program_name,date,muscle_group,excercise,repeat_amount,weight) VALUES ('"+ programName + "',3,'Груди','Жим лежачи',8,50)";
+        String sql="INSERT INTO TrainingPrograms(program_name,date,excercise,weight,repeat_amount) VALUES ('"+ programName + "','"+ day + "','"+ exercise + "','"+ weight + "','"+ repeats + "')";
         db.execSQL(sql);
     }
 
