@@ -16,6 +16,7 @@
         <ImageButton
             android:layout_weight="1"
             android:gravity="center"
+            
             android:background="@android:color/transparent"
             android:src="@drawable/monday_passive_24px"
             android:id="@+id/mondayBtn"
