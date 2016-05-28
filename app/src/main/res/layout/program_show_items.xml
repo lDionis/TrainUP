@@ -5,15 +5,22 @@
     android:layout_height="wrap_content"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
-    
-    android:paddingTop="10dp"
-    android:background="@drawable/background"
+android:background="@drawable/background"
+    android:paddingBottom="10dp"
+    android:paddingTop="4dp"
     >
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_program_name"
-        android:text="Program Name"
+        android:id="@+id/exc_name"
+        android:text="Excercise name"
         android:textColor="#0b0b0b"
         android:textSize="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/exc_sets_repeats"
+        android:text="Excercise name"
+        android:textColor="#0b0b0b"
+        android:textSize="12dp"/>
 </LinearLayout>

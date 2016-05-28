@@ -77,7 +77,7 @@ public class WeekdayPagerAdapter extends PagerAdapter {
         collection.addView(layout);
 
         //----
-        final String[] items = {"Жим лежачи","Хаммер","Станова тяга","Французький жим"};
+        final String[] items = {"Жим лежачи","Хаммер","Станова тяга","Французький жим","Шраги зі штангою","Тяга блоку за голову сидячи","Гіперекстензія","Жим гантелей сидячи","Армійський жим"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(mContext, R.layout.row_layout, R.id.txt_lan,items);
         final ListView chl=(ListView)layout.findViewById(R.id.checkable_list);
 

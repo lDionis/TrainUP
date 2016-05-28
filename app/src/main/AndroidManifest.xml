@@ -10,6 +10,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainMenuActivity"
+            android:hardwareAccelerated="false"
             android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,6 +34,7 @@
             android:name=".model.ProgramsActivity"
             android:theme="@style/AppTheme" />
         <activity android:name=".model.AddProgramActivity" />
+        <activity android:name=".ProgramShowActivity"></activity>
     </application>
 
 </manifest>

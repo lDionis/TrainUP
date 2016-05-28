@@ -7,11 +7,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ldionis.trainupapplication.ExcerciseDescriptionActivity;
 import com.ldionis.trainupapplication.ExcercisesActivity;
+import com.ldionis.trainupapplication.ProgramShowActivity;
 import com.ldionis.trainupapplication.R;
 import com.ldionis.trainupapplication.adapter.ListProgramAdapter;
 import com.ldionis.trainupapplication.database.DatabaseHelper;
@@ -60,6 +63,17 @@ public class ProgramsActivity extends Activity {
         adapter = new ListProgramAdapter(this,mProgramList);
         //set adapter for listview
         lvProgram.setAdapter(adapter);
+        lvProgram.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String prName = ((TextView) view.findViewById(R.id.tv_program_name)).getText().toString();
+                Intent i = new Intent(ProgramsActivity.this, ProgramShowActivity.class);
+                i.putExtra("ProgramName",prName);
+                startActivity(i);
+              //  Toast.makeText(getApplicationContext(), ((TextView) view.findViewById(R.id.tv_program_name)).getText().toString(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 
 

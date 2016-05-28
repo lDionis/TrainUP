@@ -58,9 +58,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void insertProgramItem(String programName, Integer day, String exercise, String weight,String repeats) {
+    public void insertProgramItem(String programName, Integer day, String exercise, String sets,String repeats) {
         SQLiteDatabase db  = this.getReadableDatabase();
-        String sql="INSERT INTO TrainingPrograms(program_name,date,excercise,weight,repeat_amount) VALUES ('"+ programName + "','"+ day + "','"+ exercise + "','"+ weight + "','"+ repeats + "')";
+        String sql="INSERT INTO TrainingPrograms(program_name,date,excercise,sets,repeat_amount) VALUES ('"+ programName + "','"+ day + "','"+ exercise + "','"+ sets + "','"+ repeats + "')";
         db.execSQL(sql);
     }
 
@@ -84,7 +84,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Program program = null;
         List<Program> productList=new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("Select * from TrainingPrograms ",null);
+        Cursor cursor = mDatabase.rawQuery("Select * from TrainingPrograms group by program_name ",null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast())
         {
@@ -97,6 +97,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         closeDatabase();
         return  productList;
     }
+    public List<Excercise> getProgramsExcercisesList(String programName, String weekDay)
+    {
+        Excercise excercise = null;
+        List<Excercise> programExcercisesList = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("Select * from TrainingPrograms where program_name='"+programName+"' and date='"+weekDay+"'",null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast())
+        {
+            excercise = new Excercise(cursor.getInt(0),cursor.getString(3),cursor.getString(4),cursor.getString(5));
+           programExcercisesList.add(excercise);
+            cursor.moveToNext();
+
+        }
+        cursor.close();
+        closeDatabase();
+        return  programExcercisesList;
+
+    }
+
+
 }
 
 
