@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ldionis.trainupapplication">
-
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,10 +13,10 @@
             android:hardwareAccelerated="false"
             android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter>
+
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" /></intent-filter>
         </activity>
         <activity
             android:name=".ExcerciseDescriptionActivity"
@@ -34,7 +34,7 @@
             android:name=".model.ProgramsActivity"
             android:theme="@style/AppTheme" />
         <activity android:name=".model.AddProgramActivity" />
-        <activity android:name=".ProgramShowActivity"></activity>
+        <activity android:name=".ProgramShowActivity" />
     </application>
 
 </manifest>
