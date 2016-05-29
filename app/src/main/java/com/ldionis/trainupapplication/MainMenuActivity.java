@@ -33,7 +33,8 @@ public class MainMenuActivity extends Activity {
     }
     public void onButtonClick1f(View v) {
     //    myDataBaseHelper.insertProgramItem();
-
+        Intent i = new Intent(MainMenuActivity.this, WaterControllActivity.class);
+        startActivity(i);
     }
 
 
