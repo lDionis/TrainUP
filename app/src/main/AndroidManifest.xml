@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ldionis.trainupapplication">
+    package="com.ldionis.trainupapplication"
+    android:installLocation="auto">
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
@@ -9,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:screenOrientation="portrait"
             android:name=".MainMenuActivity"
             android:hardwareAccelerated="false"
             android:theme="@android:style/Theme.NoTitleBar">
@@ -19,6 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" /></intent-filter>
         </activity>
         <activity
+            android:screenOrientation="portrait"
             android:name=".ExcerciseDescriptionActivity"
             android:label="@string/title_activity_excercise_description"
             android:parentActivityName=".ExcercisesActivity"
@@ -28,13 +31,17 @@
                 android:value="com.ldionis.trainupapplication.ExcercisesActivity" />
         </activity>
         <activity
+            android:screenOrientation="portrait"
             android:name=".ExcercisesActivity"
             android:theme="@style/AppTheme" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".model.ProgramsActivity"
             android:theme="@style/AppTheme" />
-        <activity android:name=".model.AddProgramActivity" />
-        <activity android:name=".ProgramShowActivity" />
+        <activity android:name=".model.AddProgramActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ProgramShowActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
