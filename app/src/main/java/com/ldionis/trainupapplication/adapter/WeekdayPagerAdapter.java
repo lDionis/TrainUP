@@ -23,7 +23,7 @@ import com.ldionis.trainupapplication.R;
 import com.ldionis.trainupapplication.database.DatabaseHelper;
 import com.ldionis.trainupapplication.model.AddProgramActivity;
 import com.ldionis.trainupapplication.model.OnAddProgramListener;
-
+import com.ldionis.trainupapplication.model.onDeleteProgramItemListener;
 import java.util.ArrayList;
 
 /**
@@ -33,10 +33,13 @@ public class WeekdayPagerAdapter extends PagerAdapter {
    public ArrayList<String>  selectedItems=new ArrayList<>();
     private Context mContext;
     private OnAddProgramListener listener;
+    private  onDeleteProgramItemListener delListener;
 
-    public WeekdayPagerAdapter(Context context, OnAddProgramListener listener) {
+    public WeekdayPagerAdapter(Context context, OnAddProgramListener listener,onDeleteProgramItemListener delListener) {
         mContext = context;
         this.listener = listener;
+        this.delListener = delListener;
+
     }
     public enum CustomPagerEnum {
 
@@ -75,15 +78,21 @@ public class WeekdayPagerAdapter extends PagerAdapter {
       final  LayoutInflater inflater = LayoutInflater.from(mContext);
         final ViewGroup layout = (ViewGroup) inflater.inflate(customPagerEnum.getLayoutResId(), collection, false);
         collection.addView(layout);
+        DatabaseHelper myDataBaseHelper = new DatabaseHelper(mContext);
+        myDataBaseHelper.openDatabase();
+       final String[] items =  myDataBaseHelper.getAllExcercise(); //this is the method to query
 
         //----
-        final String[] items = {"Жим лежачи","Хаммер","Станова тяга","Французький жим","Шраги зі штангою","Тяга блоку за голову сидячи","Гіперекстензія","Жим гантелей сидячи","Армійський жим"};
+     //   final String[] items = {"Жим лежачи","Хаммер","Станова тяга","Французький жим","Шраги зі штангою","Тяга блоку за голову сидячи","Гіперекстензія","Жим гантелей сидячи","Армійський жим"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(mContext, R.layout.row_layout, R.id.txt_lan,items);
         final ListView chl=(ListView)layout.findViewById(R.id.checkable_list);
-
+        myDataBaseHelper.closeDatabase();
         chl.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+
         //----
         chl.setAdapter(adapter);
+        chl.setSelected(false);
+
         chl.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             public  void onItemClick(AdapterView<?> parent, final View view, final int position, long id)
             {
@@ -96,7 +105,9 @@ public class WeekdayPagerAdapter extends PagerAdapter {
                 }
                 else selectedItems.add(selectedItem);
 
-                final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(mContext);
+
+
+                    final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(mContext);
 
                 final ViewGroup dialogView = (ViewGroup) inflater.inflate(R.layout.addingwr_dialog, null);
                 dialogBuilder.setView(dialogView);
@@ -106,33 +117,55 @@ public class WeekdayPagerAdapter extends PagerAdapter {
                 dialogBuilder.setTitle("Введіть дані вправи");
                 dialogBuilder.setPositiveButton("Зберегти", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        int day_of_week=0;
+                        String day_of_week="";
                         switch (mContext.getString(customPagerEnum.getTitleResId()))
                         {
-                            case "Понеділок" : day_of_week=1;break;
-                            case "Вівторок" : day_of_week=2;break;
-                            case "Середа" : day_of_week=3;break;
-                            case "Четвер" : day_of_week=4;break;
-                            case "П'ятниця" : day_of_week=5;break;
-                            case "Субота" : day_of_week=6;break;
-                            case "Неділя" : day_of_week=7;break;
+                            case "Понеділок" : day_of_week="Понеділок";break;
+                            case "Вівторок" : day_of_week="Вівторок";break;
+                            case "Середа" : day_of_week="Середа";break;
+                            case "Четвер" : day_of_week="Четвер";break;
+                            case "П'ятниця" : day_of_week="П`ятниця";break;
+                            case "Субота" : day_of_week="Субота";break;
+                            case "Неділя" : day_of_week="Неділя";break;
                         }
-                        if (listener != null) {
+                        if(edt.getText().toString()=="" || edtX.getText().toString()==""){
+                            Toast.makeText(mContext, "Ви не заповнили потрібні поля", Toast.LENGTH_SHORT).show();
+                        }
+                        else {if (listener != null) {
                             listener.onAddDayExercise(selectedItem, day_of_week, edt.getText().toString(), edtX.getText().toString());
-                        }
+                        }}
+                        chl.setItemChecked(position,true);
                     }
                 });
                 dialogBuilder.setNegativeButton("Відмінити", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         //pass
+                        chl.setItemChecked(position,false);
                         dialog.dismiss();
                     }
                 });
+                String day_of_week="";
+                switch (mContext.getString(customPagerEnum.getTitleResId()))
+                {
+                    case "Понеділок" : day_of_week="Понеділок";break;
+                    case "Вівторок" : day_of_week="Вівторок";break;
+                    case "Середа" : day_of_week="Середа";break;
+                    case "Четвер" : day_of_week="Четвер";break;
+                    case "П'ятниця" : day_of_week="П`ятниця";break;
+                    case "Субота" : day_of_week="Субота";break;
+                    case "Неділя" : day_of_week="Неділя";break;
+                }
 
-                //----
+                if(chl.isItemChecked(position))
+                {final AlertDialog b = dialogBuilder.create();
+                    b.show();
+                       }
+                else
+                { delListener.onDeleteDayItemExercise(selectedItem, day_of_week);
+                    chl.setItemChecked(position,false);
+                    Toast.makeText(mContext, "Галочка знята", Toast.LENGTH_SHORT).show();}
 
-                final AlertDialog b = dialogBuilder.create();
-                b.show();
+
 
             }
 

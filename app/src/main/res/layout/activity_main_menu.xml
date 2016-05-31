@@ -27,7 +27,7 @@
         android:background="@android:color/transparent"
         android:layout_marginTop="200dp"
         android:layout_marginLeft="30dp"
-        android:onClick="onButtonClick"
+        android:onClick="onButtonClickExc"
         />
     <Button
         android:layout_width="wrap_content"
@@ -40,7 +40,19 @@
         android:background="@android:color/transparent"
         android:layout_marginTop="240dp"
         android:layout_marginLeft="30dp"
-        android:onClick="onButtonClick1"/>
+        android:onClick="onButtonClickProg"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Час відпочинку"
+        android:id="@+id/rest_time_button"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:background="@android:color/transparent"
+        android:layout_marginTop="280dp"
+        android:layout_marginLeft="30dp"
+        android:onClick="onButtonClickRest"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,8 +62,8 @@
         android:textColor="#ffffff"
         android:textStyle="bold"
         android:background="@android:color/transparent"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="320dp"
         android:layout_marginLeft="30dp"
-        android:onClick="onButtonClick1f"/>
+        android:onClick="onButtonClickWater"/>
 
 </RelativeLayout>

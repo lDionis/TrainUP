@@ -22,18 +22,23 @@ public class MainMenuActivity extends Activity {
 
     }
 
-    public void onButtonClick(View v) {
+    public void onButtonClickExc(View v) {
         Intent i = new Intent(MainMenuActivity.this, ExcercisesActivity.class);
         startActivity(i);
     }
 
-    public void onButtonClick1(View v) {
+    public void onButtonClickProg(View v) {
         Intent i = new Intent(MainMenuActivity.this, ProgramsActivity.class);
         startActivity(i);
     }
-    public void onButtonClick1f(View v) {
-    //    myDataBaseHelper.insertProgramItem();
+
+    public void onButtonClickRest(View v) {
         Intent i = new Intent(MainMenuActivity.this, WaterControllActivity.class);
+        startActivity(i);
+    }
+
+    public void onButtonClickWater(View v) {
+        Intent i = new Intent(MainMenuActivity.this, TimerActivity.class);
         startActivity(i);
     }
 

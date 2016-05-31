@@ -14,14 +14,20 @@ import com.ldionis.trainupapplication.R;
 import com.ldionis.trainupapplication.adapter.WeekdayPagerAdapter;
 import com.ldionis.trainupapplication.database.DatabaseHelper;
 
-public class AddProgramActivity extends AppCompatActivity implements OnAddProgramListener {
+public class AddProgramActivity extends AppCompatActivity implements OnAddProgramListener,onDeleteProgramItemListener{
 
     EditText programName;
 
     @Override
-    public void onAddDayExercise(String exercise, Integer day, String weight, String repeats) {
+    public void onAddDayExercise(String exercise, String day, String weight, String repeats) {
           DatabaseHelper myDataBaseHelper = new DatabaseHelper(this);
         myDataBaseHelper.insertProgramItem(programName.getText().toString(), day, exercise, weight,repeats);
+    }
+
+    @Override
+    public void onDeleteDayItemExercise(String exercise, String day) {
+        DatabaseHelper myDataBaseHelper = new DatabaseHelper(this);
+        myDataBaseHelper.deleteProgramItem(programName.getText().toString(),day,exercise);
     }
 
     @Override
@@ -31,8 +37,9 @@ public class AddProgramActivity extends AppCompatActivity implements OnAddProgra
         programName = (EditText)findViewById(R.id.programName);
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setOffscreenPageLimit(7);
-        viewPager.setAdapter(new WeekdayPagerAdapter(this, this));
+        viewPager.setAdapter(new WeekdayPagerAdapter(this, this,this));
 
     }
+
 
 }

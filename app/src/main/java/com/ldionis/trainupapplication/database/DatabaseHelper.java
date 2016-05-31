@@ -58,11 +58,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void insertProgramItem(String programName, Integer day, String exercise, String sets,String repeats) {
+    public void insertProgramItem(String programName, String day, String exercise, String sets,String repeats) {
         SQLiteDatabase db  = this.getReadableDatabase();
         String sql="INSERT INTO TrainingPrograms(program_name,date,excercise,sets,repeat_amount) VALUES ('"+ programName + "','"+ day + "','"+ exercise + "','"+ sets + "','"+ repeats + "')";
         db.execSQL(sql);
     }
+
+    public void deleteProgramItem(String programName, String day, String exercise) {
+        SQLiteDatabase db  = this.getReadableDatabase();
+        String sql="delete from TrainingPrograms where program_name ='"+ programName + "' and date= '"+ day + "' and excercise ='"+ exercise + "'";
+        db.execSQL(sql);
+    }
+
+    public String[] getAllExcercise() {
+
+        String selectQuery = "SELECT * FROM Excercises order by muscle_group";
+        SQLiteDatabase db  = this.getReadableDatabase();
+        Cursor cursor      = db.rawQuery(selectQuery,null);
+        String[] array = new String[cursor.getCount()];
+        int i = 0;
+        while(cursor.moveToNext()){
+            String uname = cursor.getString(cursor.getColumnIndex("excercise_name"));
+            array[i] = uname;
+            i++;
+        }
+        return array;
+    }
+
 
     public String getDescription(String excerciseName) {
 

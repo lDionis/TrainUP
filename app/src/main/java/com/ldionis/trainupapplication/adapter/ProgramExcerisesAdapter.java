@@ -17,7 +17,6 @@ import java.util.List;
 public class ProgramExcerisesAdapter extends BaseAdapter {
     private Context mcontext;
     private List<Excercise> mExcerciseList;
-
     public ProgramExcerisesAdapter(Context mcontext, List<Excercise> mExcerciseList) {
         this.mcontext = mcontext;
         this.mExcerciseList = mExcerciseList;
