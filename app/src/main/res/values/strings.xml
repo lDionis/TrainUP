@@ -1,8 +1,5 @@
 <resources>
-    <string name="app_name">TrainUpApplication</string>
-    <string name="title_logo">NATIONAL GEOGRAPHIC</string>
-    <string name="btn_skip_intro">Skip Intro</string>
-
+    <string name="app_name">TrainUp</string>
 
     <string name="error_player">There was an error initializing the YouTubePlayer (%1$s)</string>
     <string-array name="exc_spyna">
@@ -77,6 +74,15 @@
         <item>Підйом ніг на похилій лавці</item>
         <item>Повороти тулуба в положенні сидячи</item>
     </string-array>
+
+    <string-array name="exc_nohy">
+        <item>Присідання зі штангою</item>
+        <item>Жим ногами в тренажері</item>
+        <item>Випрямлення ніг на тренажері</item>
+        <item>Підйом на носки стоячи</item>
+        <item>Згинання ніг на тренажері лежачи</item>
+    </string-array>
+
     <string name="title_activity_excercise_description">ExcerciseDescriptionActivity</string>
     <string name="mondey">Понеділок</string>
     <string name="tuesday">Вівторок</string>

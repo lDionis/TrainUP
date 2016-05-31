@@ -30,6 +30,7 @@ public int minuti;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timer);
+        setTitle("Час відпочинку");
         ProgressBar pb = (ProgressBar) findViewById(R.id.barTimer);
         pb.setProgress(100);
         TextView tvTimer = (TextView) findViewById(R.id.textTimer);

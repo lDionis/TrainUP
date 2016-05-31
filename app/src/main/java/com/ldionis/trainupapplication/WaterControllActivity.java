@@ -15,9 +15,10 @@ int val=0;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_water_controll);
+        setTitle("Прийом води");
         WaveLoadingView mWaveLoadingView = (WaveLoadingView) findViewById(R.id.waveLoadingView);
         mWaveLoadingView.setShapeType(WaveLoadingView.ShapeType.CIRCLE);
-        mWaveLoadingView.setTopTitle("Top Title");
+        //mWaveLoadingView.setTopTitle("Top Title");
         mWaveLoadingView.setCenterTitleColor(Color.GRAY);
         mWaveLoadingView.setBottomTitleSize(18);
         mWaveLoadingView.setProgressValue(val);
@@ -31,7 +32,7 @@ int val=0;
         WaveLoadingView mWaveLoadingView = (WaveLoadingView) findViewById(R.id.waveLoadingView);
         val=val+25;
         if(val>100){val=0;
-            Toast.makeText(this,"Ви випили достатньо на сьогодні.Продовжуйте завтра у тому ж дусі!",Toast.LENGTH_LONG);
+            Toast.makeText(this,"Ви випили достатньо на сьогодні.Продовжуйте завтра у тому ж дусі!",Toast.LENGTH_LONG).show();
         }
         mWaveLoadingView.setProgressValue(val);
     }

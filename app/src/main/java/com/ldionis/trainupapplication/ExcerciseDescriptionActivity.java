@@ -34,6 +34,8 @@ public class ExcerciseDescriptionActivity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_excercise_description);
+        String excerciseName = getIntent().getStringExtra("ExcerciseName");
+        setTitle(excerciseName);
 
         myYouTubePlayerFragment = (YouTubePlayerFragment)getFragmentManager()
                 .findFragmentById(R.id.youtubeplayerfragment);
@@ -41,13 +43,14 @@ public class ExcerciseDescriptionActivity extends AppCompatActivity implements
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        String excerciseName = getIntent().getStringExtra("ExcerciseName");
+
         DatabaseHelper myDataBaseHelper = new DatabaseHelper(ExcerciseDescriptionActivity.this);
         myDataBaseHelper.openDatabase();
         String text =  myDataBaseHelper.getDescription(excerciseName); //this is the method to query
         myDataBaseHelper.closeDatabase();
         TextView tv = (TextView)findViewById(R.id.exc_description_text);
         tv.setText(text);
+
         //----
         animateImage();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

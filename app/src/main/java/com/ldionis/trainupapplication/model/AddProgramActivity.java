@@ -34,6 +34,7 @@ public class AddProgramActivity extends AppCompatActivity implements OnAddProgra
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_program);
+        setTitle("Створення нової програми");
         programName = (EditText)findViewById(R.id.programName);
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setOffscreenPageLimit(7);

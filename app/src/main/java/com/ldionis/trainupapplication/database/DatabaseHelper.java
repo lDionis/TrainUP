@@ -63,6 +63,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String sql="INSERT INTO TrainingPrograms(program_name,date,excercise,sets,repeat_amount) VALUES ('"+ programName + "','"+ day + "','"+ exercise + "','"+ sets + "','"+ repeats + "')";
         db.execSQL(sql);
     }
+/*
+    public void getWaterIndicator() {
+        SQLiteDatabase db  = this.getReadableDatabase();
+        String sql="select water_amount from WaterIndicator";
+        db.execSQL(sql);
+    }
+
+    public void getHeaderImage(String exerciseName) {
+        SQLiteDatabase db  = this.getReadableDatabase();
+        String sql="select exc_head_img from Excercisese where excercise_name ='"+ exerciseName + "'";
+        db.execSQL(sql);
+    }
+
+    public void getAnimationImages(String exerciseName) {
+        SQLiteDatabase db  = this.getReadableDatabase();
+        String sql="select exc_anim_img from Excercisese where excercise_name ='"+ exerciseName + "'";
+        db.execSQL(sql);
+    }
+
+    public void getVideo(String exerciseName) {
+        SQLiteDatabase db  = this.getReadableDatabase();
+        String sql="select exc_video from Excercisese where excercise_name ='"+ exerciseName + "'";
+        db.execSQL(sql);
+    }*/
 
     public void deleteProgramItem(String programName, String day, String exercise) {
         SQLiteDatabase db  = this.getReadableDatabase();
@@ -71,7 +95,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public String[] getAllExcercise() {
-
         String selectQuery = "SELECT * FROM Excercises order by muscle_group";
         SQLiteDatabase db  = this.getReadableDatabase();
         Cursor cursor      = db.rawQuery(selectQuery,null);
@@ -85,7 +108,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return array;
     }
 
-
     public String getDescription(String excerciseName) {
 
         String selectQuery = "SELECT  exc_description FROM Excercises where excercise_name = '"+ excerciseName + "' ";
@@ -94,7 +116,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String data      = null;
         if (cursor.moveToFirst()) {
             do {
-              data=cursor.getString(0);
+                data=cursor.getString(0);
             } while (cursor.moveToNext());
         }
         cursor.close();

@@ -34,7 +34,7 @@ import java.util.List;
 
 
 public class ExcercisesActivity extends Activity {
-//int[] images = {R.drawable.neck,R.drawable.biceps,R.drawable.grudy};
+
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     List<String> listDataHeader;
@@ -69,29 +69,20 @@ public class ExcercisesActivity extends Activity {
         //------
         // get the listview
         expListView = (ExpandableListView) findViewById(R.id.lvExp);
-
         // preparing list data
         prepareListData();
-
-
         listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
-
         // setting list adapter
         expListView.setAdapter(listAdapter);
-
         // Listview Group click listener
         expListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
 
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v,
                                         int groupPosition, long id) {
-                // Toast.makeText(getApplicationContext(),
-                // "Group Clicked " + listDataHeader.get(groupPosition),
-                // Toast.LENGTH_SHORT).show();
                 return false;
             }
         });
-
         // Listview Group expanded listener
         expListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
 
@@ -102,7 +93,6 @@ public class ExcercisesActivity extends Activity {
                         Toast.LENGTH_SHORT).show();
             }
         });
-
         // Listview Group collasped listener
         expListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
 
@@ -114,7 +104,6 @@ public class ExcercisesActivity extends Activity {
 
             }
         });
-
         // Listview on child click listener
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
 
@@ -139,7 +128,6 @@ public class ExcercisesActivity extends Activity {
             }
         });
     }
-
     private boolean copyDatabase(Context context)
     {
         try {
@@ -168,12 +156,8 @@ public class ExcercisesActivity extends Activity {
      * Preparing the list data
      */
     private void prepareListData() {
-
         listDataChild = new HashMap<String, List<String>>();
-
         // Adding child data
-
-
         listDataHeader = new ArrayList<String>();
         listDataHeader.add("Плечі");
         listDataHeader.add("Спина");
@@ -182,6 +166,7 @@ public class ExcercisesActivity extends Activity {
         listDataHeader.add("Біцепс");
         listDataHeader.add("Трицепс");
         listDataHeader.add("Передпліччя");
+        listDataHeader.add("Ноги");
 
         List<String> plechi = Arrays.asList(getResources().getStringArray(R.array.exc_plechi));
         List<String> spyna = Arrays.asList(getResources().getStringArray(R.array.exc_spyna));
@@ -190,6 +175,7 @@ public class ExcercisesActivity extends Activity {
         List<String> biceps = Arrays.asList(getResources().getStringArray(R.array.exc_biceps));
         List<String> triceps = Arrays.asList(getResources().getStringArray(R.array.exc_triceps));
         List<String> peredplicia = Arrays.asList(getResources().getStringArray(R.array.exc_peredplicia));
+        List<String> nohy = Arrays.asList(getResources().getStringArray(R.array.exc_nohy));
         // Adding child data
 
         listDataChild.put(listDataHeader.get(0),plechi ); // Header, Child data
@@ -199,5 +185,6 @@ public class ExcercisesActivity extends Activity {
         listDataChild.put(listDataHeader.get(4), biceps);
         listDataChild.put(listDataHeader.get(5), triceps);
         listDataChild.put(listDataHeader.get(6), peredplicia);
+        listDataChild.put(listDataHeader.get(7), nohy);
     }
 }

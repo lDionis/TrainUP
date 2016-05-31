@@ -98,14 +98,36 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
         if(headerTitle =="Плечі")
         {
-         img.setImageResource(R.drawable.logo);
+         img.setImageResource(R.drawable.plechi);
         }
         else if (headerTitle =="Спина")
         {
-            img.setImageResource(R.drawable.grudy);
+            img.setImageResource(R.drawable.spyna);
         }
-        else {img.setImageResource(R.drawable.neck);}
-//myImage.setImageResource(images[groupPosition]);
+        else if (headerTitle =="Груди")
+        {
+            img.setImageResource(R.drawable.hrudy);
+        }
+        else if (headerTitle =="Прес")
+        {
+            img.setImageResource(R.drawable.pres);
+        }
+        else if (headerTitle =="Біцепс")
+        {
+            img.setImageResource(R.drawable.biceps);
+        }
+        else if (headerTitle =="Трицепс")
+        {
+            img.setImageResource(R.drawable.triceps);
+        }
+        else if (headerTitle =="Передпліччя")
+        {
+            img.setImageResource(R.drawable.peredplichia);
+        }
+        else if (headerTitle =="Ноги")
+        {
+            img.setImageResource(R.drawable.nohy);
+        }
         return convertView;
     }
 

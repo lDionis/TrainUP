@@ -33,12 +33,12 @@ public class MainMenuActivity extends Activity {
     }
 
     public void onButtonClickRest(View v) {
-        Intent i = new Intent(MainMenuActivity.this, WaterControllActivity.class);
+        Intent i = new Intent(MainMenuActivity.this, TimerActivity.class);
         startActivity(i);
     }
 
     public void onButtonClickWater(View v) {
-        Intent i = new Intent(MainMenuActivity.this, TimerActivity.class);
+        Intent i = new Intent(MainMenuActivity.this, WaterControllActivity.class);
         startActivity(i);
     }
 
