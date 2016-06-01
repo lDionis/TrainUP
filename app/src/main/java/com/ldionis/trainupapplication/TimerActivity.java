@@ -37,7 +37,6 @@ public int minuti;
         tvTimer.setText("02:00");
         minuti = 2;
     }
-
     public  void onTimeSetClick(View view)
     {
       final MaterialNumberPicker numberPicker = new MaterialNumberPicker.Builder(this)
@@ -61,7 +60,6 @@ public int minuti;
                         if (numberPicker.getValue()>=10){tvTimer.setText(numberPicker.getValue()+":00");}
                         else tvTimer.setText("0"+numberPicker.getValue()+":00");
                          minuti = numberPicker.getValue();
-
                     }
                 })
                 .setNegativeButton("Cкасувати", new DialogInterface.OnClickListener() {
@@ -72,7 +70,6 @@ public int minuti;
                 })
                 .show();
     }
-
     public  void startTime(View view){
         Button start =(Button) findViewById(R.id.button);
         ImageView setTime = (ImageView)findViewById(R.id.imageView);
@@ -80,12 +77,8 @@ public int minuti;
         start.setEnabled(false);
         setTime.setEnabled(false);
         startTimer(minuti);
-
-
     }
-
     private void startTimer(final int minuti) {
-
         countDownTimer = new CountDownTimer(60 * minuti * 1000, 500) {
             // 500 means, onTick function will be called at every 500 milliseconds
             ProgressBar barTimer = (ProgressBar) findViewById(R.id.barTimer);
@@ -97,15 +90,12 @@ public int minuti;
                 barTimer.setMax(60*minuti);
                 barTimer.setProgress((int)seconds);
                 textTimer.setText(String.format("%02d", seconds/60) + ":" + String.format("%02d", seconds%60));
-
-
             }
             @Override
             public void onFinish() {
                 Button start =(Button) findViewById(R.id.button);
                 ImageView setTime = (ImageView)findViewById(R.id.imageView);
                 if(textTimer.getText().equals("00:00")){
-
                     try {
                         AssetFileDescriptor afd;
                         afd = getAssets().openFd("alarmsong.mp3");
@@ -128,14 +118,9 @@ public int minuti;
                     anim.setRepeatMode(Animation.REVERSE);
                     anim.setRepeatCount(Animation.INFINITE);
                     textTimer.startAnimation(anim);
-
-
                 }
                 else{
                     textTimer.setText("2:00");
                     barTimer.setProgress(60*minuti);
-
-                }
-            }
-        }.start();
-}}
+                }            }
+        }.start();}}

@@ -21,7 +21,6 @@ public class ProgramExcerisesAdapter extends BaseAdapter {
         this.mcontext = mcontext;
         this.mExcerciseList = mExcerciseList;
     }
-
     @Override
     public int getCount() {
         if(mExcerciseList == null)
@@ -30,7 +29,6 @@ public class ProgramExcerisesAdapter extends BaseAdapter {
         }
         return mExcerciseList.size();
     }
-
     @Override
     public Object getItem(int position) {
         return mExcerciseList.get(position);

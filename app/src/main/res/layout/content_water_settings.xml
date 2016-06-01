@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_water_settings"
+    tools:context="com.ldionis.trainupapplication.WaterSettingsActivity">
+    <RadioGroup
+        android:id="@+id/radioSex"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <RadioButton
+            android:id="@+id/radioMale"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Чоловік"
+
+            android:backgroundTint="@color/orangy"
+            android:checked="true" />
+        <RadioButton android:layout_weight="1"
+            android:id="@+id/radioFemale"
+            android:layout_marginLeft="15dp"
+
+            android:backgroundTint="@color/orangy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Жінка" />
+    </RadioGroup>
+    <View
+        android:id="@+id/separate1"
+        android:layout_below="@id/radioSex"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/light_gray" />
+    <EditText
+        android:layout_below="@id/separate1"
+        android:id="@+id/setWeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Введіть вашу вагу(кг)"
+        />
+    <View
+        android:id="@+id/separate2"
+        android:layout_below="@id/setWeight"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/light_gray" />
+<android.support.v7.widget.AppCompatCheckBox
+    android:id="@+id/autoCalculate"
+    android:layout_below="@id/separate2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Автоматичний розрахунок денної норми прийому води"/>
+    <EditText
+        android:layout_below="@id/autoCalculate"
+        android:id="@+id/setWaterAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Введіть кількість води(мл)"
+        />
+</RelativeLayout>

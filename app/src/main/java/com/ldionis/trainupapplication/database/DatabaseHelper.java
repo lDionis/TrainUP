@@ -28,8 +28,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         super(context, DBNAME, null, 1);
         this.mContext = context;
     }
-
-
     @Override
     public void onCreate(SQLiteDatabase db) {
 
@@ -63,7 +61,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String sql="INSERT INTO TrainingPrograms(program_name,date,excercise,sets,repeat_amount) VALUES ('"+ programName + "','"+ day + "','"+ exercise + "','"+ sets + "','"+ repeats + "')";
         db.execSQL(sql);
     }
-/*
+
     public void getWaterIndicator() {
         SQLiteDatabase db  = this.getReadableDatabase();
         String sql="select water_amount from WaterIndicator";
@@ -86,7 +84,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db  = this.getReadableDatabase();
         String sql="select exc_video from Excercisese where excercise_name ='"+ exerciseName + "'";
         db.execSQL(sql);
-    }*/
+    }
 
     public void deleteProgramItem(String programName, String day, String exercise) {
         SQLiteDatabase db  = this.getReadableDatabase();
@@ -109,7 +107,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public String getDescription(String excerciseName) {
-
         String selectQuery = "SELECT  exc_description FROM Excercises where excercise_name = '"+ excerciseName + "' ";
         SQLiteDatabase db  = this.getReadableDatabase();
         Cursor cursor      = db.rawQuery(selectQuery,null);
@@ -135,7 +132,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             program = new Program(cursor.getInt(0),cursor.getString(1));
             productList.add(program);
             cursor.moveToNext();
-
         }
         cursor.close();
         closeDatabase();
@@ -153,15 +149,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             excercise = new Excercise(cursor.getInt(0),cursor.getString(3),cursor.getString(4),cursor.getString(5));
            programExcercisesList.add(excercise);
             cursor.moveToNext();
-
         }
         cursor.close();
         closeDatabase();
         return  programExcercisesList;
-
     }
-
-
 }
 
 

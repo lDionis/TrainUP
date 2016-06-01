@@ -8,15 +8,12 @@ public class Excercise {
     private  String excercise;
     private  String repeat_amount;
     private  String sets;
-
-
     public Excercise(int id,String excercise, String sets, String repeat_amount) {
         this.id = id;
         this.excercise = excercise;
         this.sets = sets;
         this.repeat_amount = repeat_amount;
     }
-
     public int getId() {
         return id;
     }

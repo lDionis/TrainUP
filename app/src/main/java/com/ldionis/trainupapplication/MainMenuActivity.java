@@ -21,26 +21,19 @@ public class MainMenuActivity extends Activity {
         setContentView(R.layout.activity_main_menu);
 
     }
-
     public void onButtonClickExc(View v) {
         Intent i = new Intent(MainMenuActivity.this, ExcercisesActivity.class);
         startActivity(i);
     }
-
     public void onButtonClickProg(View v) {
         Intent i = new Intent(MainMenuActivity.this, ProgramsActivity.class);
         startActivity(i);
     }
-
     public void onButtonClickRest(View v) {
         Intent i = new Intent(MainMenuActivity.this, TimerActivity.class);
         startActivity(i);
     }
-
     public void onButtonClickWater(View v) {
         Intent i = new Intent(MainMenuActivity.this, WaterControllActivity.class);
         startActivity(i);
-    }
-
-
-}
+    }}

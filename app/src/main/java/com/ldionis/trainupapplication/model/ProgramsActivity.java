@@ -3,6 +3,8 @@ package com.ldionis.trainupapplication.model;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -42,6 +44,14 @@ public class ProgramsActivity extends Activity {
         lvProgram = (ListView)findViewById(R.id.listview_program);
         mDBHelper = new DatabaseHelper(this);
 
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabProg);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(ProgramsActivity.this, AddProgramActivity.class);
+                startActivity(i);
+            }
+        });
         //check exists db
         File database = getApplicationContext().getDatabasePath(DatabaseHelper.DBNAME);
         if (false == database.exists())
@@ -70,14 +80,9 @@ public class ProgramsActivity extends Activity {
                 Intent i = new Intent(ProgramsActivity.this, ProgramShowActivity.class);
                 i.putExtra("ProgramName",prName);
                 startActivity(i);
-              //  Toast.makeText(getApplicationContext(), ((TextView) view.findViewById(R.id.tv_program_name)).getText().toString(), Toast.LENGTH_SHORT).show();
-
             }
         });
     }
-
-
-
     private boolean copyDatabase(Context context)
     {
         try {
@@ -101,8 +106,4 @@ public class ProgramsActivity extends Activity {
         }
     }
 
-    public void onButtonClickNew(View v) {
-        Intent i = new Intent(ProgramsActivity.this, AddProgramActivity.class);
-        startActivity(i);
-    }
 }

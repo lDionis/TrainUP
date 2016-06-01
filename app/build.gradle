@@ -28,5 +28,6 @@ dependencies {
     compile 'me.itangqi.waveloadingview:library:0.2.3'
     compile 'biz.kasual:materialnumberpicker:1.2.1'
     compile 'com.flaviofaria:kenburnsview:1.0.7'
+    compile 'com.github.jorgecastilloprz:fabprogresscircle:1.01@aar'
     compile files('libs/YouTubeAndroidPlayerApi.jar')
 }

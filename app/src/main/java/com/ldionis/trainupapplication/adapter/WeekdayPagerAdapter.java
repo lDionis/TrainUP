@@ -163,10 +163,7 @@ public class WeekdayPagerAdapter extends PagerAdapter {
                 else
                 { delListener.onDeleteDayItemExercise(selectedItem, day_of_week);
                     chl.setItemChecked(position,false);
-                    Toast.makeText(mContext, "Галочка знята", Toast.LENGTH_SHORT).show();}
-
-
-
+                   }
             }
 
         });
@@ -176,12 +173,6 @@ public class WeekdayPagerAdapter extends PagerAdapter {
         return layout;
 
     }
-
-
- //   public void showChangeLangDialog(){
-
-
-
     @Override
     public void destroyItem(ViewGroup collection, int position, Object view) {
         collection.removeView((View) view);
@@ -195,13 +186,10 @@ public class WeekdayPagerAdapter extends PagerAdapter {
     @Override
     public boolean isViewFromObject(View view, Object object) {
         return view == object;
-
     }
-
     @Override
     public CharSequence getPageTitle(int position) {
         CustomPagerEnum customPagerEnum = CustomPagerEnum.values()[position];
         return mContext.getString(customPagerEnum.getTitleResId());
     }
-
 }

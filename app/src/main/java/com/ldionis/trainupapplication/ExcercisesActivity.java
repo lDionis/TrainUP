@@ -150,14 +150,9 @@ public class ExcercisesActivity extends Activity {
             return false;
         }
     }
-
-
-    /*
-     * Preparing the list data
-     */
     private void prepareListData() {
         listDataChild = new HashMap<String, List<String>>();
-        // Adding child data
+        // Adding muscle_groups
         listDataHeader = new ArrayList<String>();
         listDataHeader.add("Плечі");
         listDataHeader.add("Спина");
@@ -167,7 +162,7 @@ public class ExcercisesActivity extends Activity {
         listDataHeader.add("Трицепс");
         listDataHeader.add("Передпліччя");
         listDataHeader.add("Ноги");
-
+        // Adding excercises
         List<String> plechi = Arrays.asList(getResources().getStringArray(R.array.exc_plechi));
         List<String> spyna = Arrays.asList(getResources().getStringArray(R.array.exc_spyna));
         List<String> hrudy = Arrays.asList(getResources().getStringArray(R.array.exc_hrudy));
@@ -176,9 +171,7 @@ public class ExcercisesActivity extends Activity {
         List<String> triceps = Arrays.asList(getResources().getStringArray(R.array.exc_triceps));
         List<String> peredplicia = Arrays.asList(getResources().getStringArray(R.array.exc_peredplicia));
         List<String> nohy = Arrays.asList(getResources().getStringArray(R.array.exc_nohy));
-        // Adding child data
-
-        listDataChild.put(listDataHeader.get(0),plechi ); // Header, Child data
+        listDataChild.put(listDataHeader.get(0),plechi );
         listDataChild.put(listDataHeader.get(1), spyna);
         listDataChild.put(listDataHeader.get(2), hrudy);
         listDataChild.put(listDataHeader.get(3), pres);

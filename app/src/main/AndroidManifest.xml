@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ldionis.trainupapplication"
-    android:installLocation="auto">
+    android:installLocation="auto" >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -10,23 +10,20 @@
         android:icon="@mipmap/appicon"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".MainMenuActivity"
             android:hardwareAccelerated="false"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:theme="@android:style/Theme.NoTitleBar" >
+
         </activity>
         <activity
             android:name=".ExcerciseDescriptionActivity"
             android:label="@string/title_activity_excercise_description"
             android:parentActivityName=".ExcercisesActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.ldionis.trainupapplication.ExcercisesActivity" />
@@ -46,7 +43,20 @@
             android:name=".ProgramShowActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".WaterControllActivity" />
-        <activity android:name=".TimerActivity"></activity>
+        <activity android:name=".TimerActivity" />
+        <activity
+            android:name=".WaterSettingsActivity"
+            android:label="@string/title_activity_water_settings"
+            android:parentActivityName=".WaterControllActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ldionis.trainupapplication.WaterControllActivity" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
