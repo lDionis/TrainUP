@@ -31,6 +31,8 @@ public int minuti;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timer);
         setTitle("Час відпочинку");
+        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_white_24dp);
         ProgressBar pb = (ProgressBar) findViewById(R.id.barTimer);
         pb.setProgress(100);
         TextView tvTimer = (TextView) findViewById(R.id.textTimer);

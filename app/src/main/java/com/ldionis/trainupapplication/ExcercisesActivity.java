@@ -33,7 +33,7 @@ import java.util.List;
 
 
 
-public class ExcercisesActivity extends Activity {
+public class ExcercisesActivity extends AppCompatActivity {
 
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
@@ -46,8 +46,9 @@ public class ExcercisesActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_excercises);
-
-
+        setTitle("Вправи");
+        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_white_24dp);
         //------
         mDBHelper = new DatabaseHelper(this);
 

@@ -33,7 +33,8 @@ public  int waterAmount;
         Calendar c = Calendar.getInstance();
         int thisDay = c.get(Calendar.DAY_OF_YEAR); //You can chose something else to compare too, such as DATE..
         long todayMillis = c.getTimeInMillis(); //We might need this a bit later.
-
+        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_white_24dp);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         long last = prefs.getLong("date", 0); //If we don't have a saved value, use 0.
         c.setTimeInMillis(last);

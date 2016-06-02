@@ -21,8 +21,6 @@ import com.ldionis.trainupapplication.model.AddProgramActivity;
 public class WaterSettingsActivity extends AppCompatActivity {
     DatabaseHelper mDBHelper= new DatabaseHelper(this);
     private RadioGroup radioSexGroup;
-    private RadioButton radioSexButton;
-    private Button btnDisplay;
     public int coefficient=0;
     public int weight=0;
     public int waterAmountNum=0;

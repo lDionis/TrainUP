@@ -86,6 +86,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(sql);
     }
 
+    public void deleteProgram(String programName) {
+        SQLiteDatabase db  = this.getReadableDatabase();
+        String sql="delete from TrainingPrograms where program_name ='"+ programName + "'";
+        db.execSQL(sql);
+    }
+
     public int getWaterAmount() {
         String selectQuery = "select water_amount from WaterIndicator ";
         SQLiteDatabase db  = this.getReadableDatabase();
@@ -123,7 +129,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     public void updateWater(int waterAmount, int userWeight, int userSex ) {
         SQLiteDatabase db  = this.getReadableDatabase();
-        String selectQuery = "update WaterIndicator set water_amount = '"+ waterAmount + "', '"+userWeight+"', '"+userSex+"' ";
+        String selectQuery = "update WaterIndicator set water_amount = '"+ waterAmount + "', userWeight= '"+userWeight+"', userSex= '"+userSex+"' ";
          db.execSQL(selectQuery);
     }
 

@@ -34,19 +34,27 @@
         <activity
             android:name=".ExcercisesActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".MainMenuActivity"/>
         <activity
             android:name=".model.ProgramsActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".MainMenuActivity"/>
         <activity
             android:name=".model.AddProgramActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" ><meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.ldionis.trainupapplication.model.ProgramsActivity" /></activity>
         <activity
             android:name=".ProgramShowActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".WaterControllActivity" />
-        <activity android:name=".TimerActivity" />
+            android:screenOrientation="portrait" ><meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.ldionis.trainupapplication.model.ProgramsActivity" /></activity>
+        <activity android:name=".WaterControllActivity"
+            android:parentActivityName=".MainMenuActivity" />
+        <activity android:name=".TimerActivity"
+            android:parentActivityName=".MainMenuActivity"/>
         <activity
             android:name=".WaterSettingsActivity"
             android:label="@string/title_activity_water_settings"
