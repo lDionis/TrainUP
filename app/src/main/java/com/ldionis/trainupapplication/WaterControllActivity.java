@@ -9,10 +9,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import com.ldionis.trainupapplication.database.DatabaseHelper;
+import com.ldionis.trainupapplication.model.ProgramsActivity;
 
 import java.util.Calendar;
 
@@ -62,6 +66,26 @@ public  int waterAmount;
         mWaveLoadingView.setAmplitudeRatio(60);
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_settings,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent i = new Intent(WaterControllActivity.this, WaterSettingsActivity.class);
+        switch (item.getItemId())
+        {
+            case R.id.action_menu:
+                startActivity(i);
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     public void onButtonClick2f(View v) {
         WaveLoadingView mWaveLoadingView = (WaveLoadingView) findViewById(R.id.waveLoadingView);
         consNum=consNum+500;
@@ -93,10 +117,6 @@ public  int waterAmount;
         customtoast.setDuration(Toast.LENGTH_LONG);
         customtoast.show();
 
-    }
-    public void sett(View v) {
-        Intent i = new Intent(WaterControllActivity.this, WaterSettingsActivity.class);
-        startActivity(i);
     }
 
     public void onButton400(View v) {

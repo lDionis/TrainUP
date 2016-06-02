@@ -1,5 +1,6 @@
 package com.ldionis.trainupapplication;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -7,6 +8,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -50,9 +53,26 @@ public class WaterSettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
             mDBHelper.updateWater(waterAmountNum,weight,coefficient);
-                Toast.makeText(WaterSettingsActivity.this,"Параметри оновлено",Toast.LENGTH_LONG).show();
+                showToast();
             }
         });
+
+    }
+    public void showToast()
+    {
+        TextView tx =(TextView)findViewById(R.id.textView1);
+        tx.setText("Параметри оновлено");
+        Context context=getApplicationContext();
+        LayoutInflater inflater=getLayoutInflater();
+
+        View customToastroot =inflater.inflate(R.layout.mycustom_toast, null);
+
+        Toast customtoast=new Toast(context);
+
+        customtoast.setView(customToastroot);
+        customtoast.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL,0, 0);
+        customtoast.setDuration(Toast.LENGTH_LONG);
+        customtoast.show();
 
     }
     public void addListenerOnButton() {
@@ -86,6 +106,7 @@ public class WaterSettingsActivity extends AppCompatActivity {
 
         });
     }
+
     public void addListenerOnCheckbox(){
         final AppCompatCheckBox checkBox = (AppCompatCheckBox)findViewById(R.id.autoCalculate);
         final EditText amountWater = (EditText)findViewById(R.id.setWaterAmount);

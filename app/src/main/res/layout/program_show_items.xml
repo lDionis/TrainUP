@@ -9,6 +9,7 @@ android:background="@drawable/background"
     android:paddingBottom="10dp"
     android:paddingTop="4dp"
     >
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
