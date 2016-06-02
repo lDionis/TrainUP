@@ -11,6 +11,8 @@
         android:layout_height="wrap_content"
         android:src="@drawable/scr_left"
         android:layout_marginLeft="5dp"
+        android:layout_marginBottom="40dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
  />
     <ImageView
@@ -18,9 +20,30 @@
         android:layout_height="wrap_content"
         android:src="@drawable/scr_right"
         android:layout_marginRight="5dp"
+        android:layout_marginBottom="40dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true" />
+    <me.itangqi.waveloadingview.WaveLoadingView
+        android:layout_marginTop="30dp"
+        android:id="@+id/waveLoadingView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:wlv_borderColor="#26000000"
+        app:wlv_borderWidth="3dp"
+        app:wlv_progressValue="1000"
+        app:wlv_shapeType="circle"
+        app:wlv_round_rectangle="true"
+        app:wlv_triangle_direction="north"
+        app:wlv_titleCenter=""
+        app:wlv_titleCenterColor="#000000"
+        app:wlv_titleCenterSize="24sp"
+        app:wlv_waveAmplitude="70"
+        app:wlv_waveColor="#2991ec"
+        android:layout_centerHorizontal="true" />
     <HorizontalScrollView
         android:id="@+id/waterVessels"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/waveLoadingView"
         android:layout_centerHorizontal="true"
         android:scrollbars="none"
         android:layout_width="wrap_content"
@@ -30,24 +53,24 @@
             android:paddingTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-        <Button
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bottleofwater"
-            android:text="500"
-            android:textSize="20dp"
-            android:onClick="onButtonClick2f"
-            android:gravity="bottom|center"/>
-        <Button
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/glass_of_water"
-            android:text="400"
-            android:textSize="20dp"
-            android:gravity="bottom|center"
-            android:onClick="onButton400"/>
+            <Button
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bottleofwater"
+                android:text="500"
+                android:textSize="20dp"
+                android:onClick="onButtonClick2f"
+                android:gravity="bottom|center"/>
+            <Button
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/glass_of_water"
+                android:text="400"
+                android:textSize="20dp"
+                android:gravity="bottom|center"
+                android:onClick="onButton400"/>
             <Button
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
@@ -75,30 +98,26 @@
                 android:textSize="20dp"
                 android:gravity="bottom|center"
                 android:onClick="onButton100"/>
-</LinearLayout>
+        </LinearLayout>
     </HorizontalScrollView>
+    <View
+        android:id="@+id/separateX"
+        android:layout_below="@id/waterVessels"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
 
-    <me.itangqi.waveloadingview.WaveLoadingView
-        android:id="@+id/waveLoadingView"
-        android:layout_marginTop="150dp"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        app:wlv_borderColor="#26000000"
-        app:wlv_borderWidth="3dp"
-        app:wlv_progressValue="1000"
-        app:wlv_shapeType="circle"
-        app:wlv_round_rectangle="true"
-        app:wlv_triangle_direction="north"
-        app:wlv_titleCenter="Center Title"
-        app:wlv_titleCenterColor="@color/colorPrimary"
-        app:wlv_titleCenterSize="24sp"
-        app:wlv_waveAmplitude="70"
-        app:wlv_waveColor="#2991ec"
-        android:layout_centerHorizontal="true" />
+        android:background="@color/light_gray" />
+    <TextView
+        android:layout_below="@id/separateX"
+        android:text="Оберіть бажаний напій"
+        android:layout_centerHorizontal="true"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
     <Button
         android:id="@+id/settt"
 android:background="@drawable/settings"
-        android:layout_below="@+id/waveLoadingView"
+
         android:layout_width="16dp"
         android:layout_height="16dp"
         android:onClick="sett"/>
