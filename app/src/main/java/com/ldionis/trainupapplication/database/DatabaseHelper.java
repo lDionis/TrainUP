@@ -62,12 +62,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(sql);
     }
 
-    public void getWaterIndicator() {
-        SQLiteDatabase db  = this.getReadableDatabase();
-        String sql="select water_amount from WaterIndicator";
-        db.execSQL(sql);
-    }
-
     public void getHeaderImage(String exerciseName) {
         SQLiteDatabase db  = this.getReadableDatabase();
         String sql="select exc_head_img from Excercisese where excercise_name ='"+ exerciseName + "'";
@@ -92,6 +86,76 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(sql);
     }
 
+    public int getWaterAmount() {
+        String selectQuery = "select water_amount from WaterIndicator ";
+        SQLiteDatabase db  = this.getReadableDatabase();
+        Cursor cursor      = db.rawQuery(selectQuery,null);
+        int data = 0;
+        if (cursor.moveToFirst()) {
+                data=  cursor.getInt(0);
+        }
+        cursor.close();
+        return data;
+    }
+
+    public int getWaterWeight() {
+        String selectQuery = "select userWeight from WaterIndicator ";
+        SQLiteDatabase db  = this.getReadableDatabase();
+        Cursor cursor      = db.rawQuery(selectQuery,null);
+        int data = 0;
+        if (cursor.moveToFirst()) {
+            data=  cursor.getInt(0);
+        }
+        cursor.close();
+        return data;
+    }
+
+    public int getWaterSex() {
+        String selectQuery = "select userSex from WaterIndicator ";
+        SQLiteDatabase db  = this.getReadableDatabase();
+        Cursor cursor      = db.rawQuery(selectQuery,null);
+        int data = 0;
+        if (cursor.moveToFirst()) {
+            data=  cursor.getInt(0);
+        }
+        cursor.close();
+        return data;
+    }
+    public void updateWater(int waterAmount, int userWeight, int userSex ) {
+        SQLiteDatabase db  = this.getReadableDatabase();
+        String selectQuery = "update WaterIndicator set water_amount = '"+ waterAmount + "', '"+userWeight+"', '"+userSex+"' ";
+         db.execSQL(selectQuery);
+    }
+
+    public void updateDrinked(int drinkedAmount, int drinkedFull ) {
+        SQLiteDatabase db  = this.getReadableDatabase();
+        String selectQuery = "update WaterIndicator set drinkedAmount = '"+ drinkedAmount + "', drinkedAmountFull = '"+ drinkedFull + "' ";
+        db.execSQL(selectQuery);
+    }
+
+    public int getWaterDrinker() {
+        String selectQuery = "select drinkedAmount from WaterIndicator ";
+        SQLiteDatabase db  = this.getReadableDatabase();
+        Cursor cursor      = db.rawQuery(selectQuery,null);
+        int data = 0;
+        if (cursor.moveToFirst()) {
+            data=  cursor.getInt(0);
+        }
+        cursor.close();
+        return data;
+    }
+
+    public int getWaterDrinkedFull() {
+        String selectQuery = "select drinkedAmountFull from WaterIndicator ";
+        SQLiteDatabase db  = this.getReadableDatabase();
+        Cursor cursor      = db.rawQuery(selectQuery,null);
+        int data = 0;
+        if (cursor.moveToFirst()) {
+            data=  cursor.getInt(0);
+        }
+        cursor.close();
+        return data;
+    }
     public String[] getAllExcercise() {
         String selectQuery = "SELECT * FROM Excercises order by muscle_group";
         SQLiteDatabase db  = this.getReadableDatabase();

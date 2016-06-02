@@ -14,8 +14,14 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_water_settings"
     tools:context="com.ldionis.trainupapplication.WaterSettingsActivity">
+    <TextView
+        android:id="@+id/t1"
+        android:text="Стать"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
     <RadioGroup
         android:id="@+id/radioSex"
+        android:layout_below="@id/t1"
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
@@ -46,8 +52,15 @@
         android:layout_marginBottom="15dp"
         android:layout_marginTop="15dp"
         android:background="@color/light_gray" />
-    <EditText
+    <TextView
+        android:id="@+id/t2"
+        android:text="Вага"
+
         android:layout_below="@id/separate1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:layout_below="@id/t2"
         android:id="@+id/setWeight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -62,18 +75,26 @@
         android:layout_marginBottom="15dp"
         android:layout_marginTop="15dp"
         android:background="@color/light_gray" />
-<android.support.v7.widget.AppCompatCheckBox
-    android:id="@+id/autoCalculate"
-    android:layout_below="@id/separate2"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Автоматичний розрахунок денної норми прийому води"/>
+    <TextView
+        android:id="@+id/t3"
+        android:text="Добова потреба води"
+        android:layout_below="@id/separate2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
     <EditText
-        android:layout_below="@id/autoCalculate"
         android:id="@+id/setWaterAmount"
+        android:layout_below="@id/t3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:hint="Введіть кількість води(мл)"
         />
+    <android.support.v7.widget.AppCompatCheckBox
+        android:id="@+id/autoCalculate"
+        android:layout_below="@id/setWaterAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Автоматичний розрахунок денної норми прийому води"/>
+
+
 </RelativeLayout>
