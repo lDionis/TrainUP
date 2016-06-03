@@ -34,11 +34,11 @@ public class MainMenuActivity extends Activity {
             //copy db
             if(copyDatabase(this))
             {
-                Toast.makeText(this,"Copy db success",Toast.LENGTH_SHORT).show();
+
             }
             else{
                 Toast.makeText(this,"Copy db failed",Toast.LENGTH_SHORT).show();
-                return;
+
             }
         }
     }

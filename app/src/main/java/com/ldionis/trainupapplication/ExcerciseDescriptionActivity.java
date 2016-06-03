@@ -27,7 +27,7 @@ public class ExcerciseDescriptionActivity extends AppCompatActivity implements
         YouTubePlayer.OnInitializedListener{
     public static final String DEVELOPER_KEY ="AIzaSyBKO6Yh22o6nvIk2kgJrOrcVPUFB7a75e4";
     private static final int RECOVERY_DIALOG_REQUEST = 1;
-    private static final String VIDEO_ID = "fhWaJi1Hsfo";
+    public String VIDEO_ID = "fhWaJi1Hsfo";
     YouTubePlayerFragment myYouTubePlayerFragment;
     public String excerciseName;
     DatabaseHelper myDataBaseHelper = new DatabaseHelper(ExcerciseDescriptionActivity.this);
@@ -38,6 +38,7 @@ public class ExcerciseDescriptionActivity extends AppCompatActivity implements
         excerciseName = getIntent().getStringExtra("ExcerciseName");
         setTitle(excerciseName);
 
+        VIDEO_ID = myDataBaseHelper.getDescriptionVideo(excerciseName);
 
         myYouTubePlayerFragment = (YouTubePlayerFragment)getFragmentManager()
                 .findFragmentById(R.id.youtubeplayerfragment);
@@ -55,6 +56,8 @@ ImageView dschead = (ImageView)findViewById(R.id.descheader);
         String header = myDataBaseHelper.getDescriptionHeader(excerciseName);
         int headerID = getResources().getIdentifier(header , "drawable", getPackageName());
         dschead.setImageResource(headerID);
+
+
         TextView tv = (TextView)findViewById(R.id.exc_description_text);
         tv.setText(text);
 

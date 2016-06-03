@@ -62,23 +62,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(sql);
     }
 
-    public void getHeaderImage(String exerciseName) {
-        SQLiteDatabase db  = this.getReadableDatabase();
-        String sql="select exc_head_img from Excercisese where excercise_name ='"+ exerciseName + "'";
-        db.execSQL(sql);
-    }
-
-    public void getAnimationImages(String exerciseName) {
-        SQLiteDatabase db  = this.getReadableDatabase();
-        String sql="select exc_anim_img from Excercisese where excercise_name ='"+ exerciseName + "'";
-        db.execSQL(sql);
-    }
-
-    public void getVideo(String exerciseName) {
-        SQLiteDatabase db  = this.getReadableDatabase();
-        String sql="select exc_video from Excercisese where excercise_name ='"+ exerciseName + "'";
-        db.execSQL(sql);
-    }
 
     public void deleteProgramItem(String programName, String day, String exercise) {
         SQLiteDatabase db  = this.getReadableDatabase();
@@ -192,6 +175,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public String getDescriptionAnimater(String excerciseName) {
         String selectQuery = "SELECT  exc_anim_img FROM Excercises where excercise_name = '"+ excerciseName + "' ";
+        SQLiteDatabase db  = this.getReadableDatabase();
+        Cursor cursor      = db.rawQuery(selectQuery,null);
+        String data      = null;
+        if (cursor.moveToFirst()) {
+            do {
+                data=cursor.getString(0);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return data;
+    }
+
+    public String getDescriptionVideo(String excerciseName) {
+        String selectQuery = "SELECT  exc_video FROM Excercises where excercise_name = '"+ excerciseName + "' ";
         SQLiteDatabase db  = this.getReadableDatabase();
         Cursor cursor      = db.rawQuery(selectQuery,null);
         String data      = null;
