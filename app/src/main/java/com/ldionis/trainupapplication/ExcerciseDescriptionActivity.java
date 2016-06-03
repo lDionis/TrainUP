@@ -89,8 +89,6 @@ ImageView dschead = (ImageView)findViewById(R.id.descheader);
                                         boolean wasRestored) {
         if (!wasRestored) {
             player.cueVideo(VIDEO_ID);
-            NestedScrollView sv = (NestedScrollView)findViewById(R.id.scr);
-            sv.scrollTo(0, sv.getBottom());
         }
     }
 

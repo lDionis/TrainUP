@@ -60,10 +60,9 @@ public class ExcercisesActivity extends AppCompatActivity {
             //copy db
             if(copyDatabase(this))
             {
-                Toast.makeText(this,"Copy db success",Toast.LENGTH_SHORT).show();
+
             }
             else{
-                Toast.makeText(this,"Copy db failed",Toast.LENGTH_SHORT).show();
                 return;
             }
         }
@@ -89,9 +88,7 @@ public class ExcercisesActivity extends AppCompatActivity {
 
             @Override
             public void onGroupExpand(int groupPosition) {
-                Toast.makeText(getApplicationContext(),
-                        listDataHeader.get(groupPosition) + " Expanded",
-                        Toast.LENGTH_SHORT).show();
+
             }
         });
         // Listview Group collasped listener
@@ -99,9 +96,7 @@ public class ExcercisesActivity extends AppCompatActivity {
 
             @Override
             public void onGroupCollapse(int groupPosition) {
-                Toast.makeText(getApplicationContext(),
-                        listDataHeader.get(groupPosition) + " Collapsed",
-                        Toast.LENGTH_SHORT).show();
+
 
             }
         });

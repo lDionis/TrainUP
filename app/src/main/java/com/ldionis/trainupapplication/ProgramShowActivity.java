@@ -28,6 +28,7 @@ public class ProgramShowActivity extends AppCompatActivity {
         lvExcList = (ListView) findViewById(R.id.programExcercise);
         mdDBHelper = new DatabaseHelper(this);
         progName = getIntent().getStringExtra("ProgramName");
+        setTitle(progName);
         mProgrExcerciseList = mdDBHelper.getProgramsExcercisesList(progName,"Понеділок");
         adapter  = new ProgramExcerisesAdapter(this, mProgrExcerciseList);
         lvExcList.setAdapter(adapter);

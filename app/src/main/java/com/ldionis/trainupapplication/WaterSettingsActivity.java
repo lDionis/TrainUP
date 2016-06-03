@@ -60,12 +60,10 @@ public class WaterSettingsActivity extends AppCompatActivity {
     }
     public void showToast()
     {
-        TextView tx =(TextView)findViewById(R.id.textView1);
-        tx.setText("Параметри оновлено");
         Context context=getApplicationContext();
         LayoutInflater inflater=getLayoutInflater();
 
-        View customToastroot =inflater.inflate(R.layout.mycustom_toast, null);
+        View customToastroot =inflater.inflate(R.layout.cusst_toast, null);
 
         Toast customtoast=new Toast(context);
 

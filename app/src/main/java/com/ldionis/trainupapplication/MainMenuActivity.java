@@ -37,7 +37,7 @@ public class MainMenuActivity extends Activity {
 
             }
             else{
-                Toast.makeText(this,"Copy db failed",Toast.LENGTH_SHORT).show();
+
 
             }
         }
