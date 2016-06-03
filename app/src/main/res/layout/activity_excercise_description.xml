@@ -21,9 +21,10 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:contentScrim="?attr/colorPrimary">
             <ImageView
+                android:id="@+id/descheader"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/test"
+
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"/>
             <android.support.v7.widget.Toolbar

@@ -190,6 +190,34 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return data;
     }
 
+    public String getDescriptionAnimater(String excerciseName) {
+        String selectQuery = "SELECT  exc_anim_img FROM Excercises where excercise_name = '"+ excerciseName + "' ";
+        SQLiteDatabase db  = this.getReadableDatabase();
+        Cursor cursor      = db.rawQuery(selectQuery,null);
+        String data      = null;
+        if (cursor.moveToFirst()) {
+            do {
+                data=cursor.getString(0);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return data;
+    }
+
+    public String getDescriptionHeader(String excerciseName) {
+        String selectQuery = "SELECT  exc_head_img FROM Excercises where excercise_name = '"+ excerciseName + "' ";
+        SQLiteDatabase db  = this.getReadableDatabase();
+        Cursor cursor      = db.rawQuery(selectQuery,null);
+        String data      = null;
+        if (cursor.moveToFirst()) {
+            do {
+                data=cursor.getString(0);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return data;
+    }
+
     public List<Program> getListProgram()
     {
         Program program = null;

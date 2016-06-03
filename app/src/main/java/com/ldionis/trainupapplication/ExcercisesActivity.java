@@ -161,7 +161,6 @@ public class ExcercisesActivity extends AppCompatActivity {
         listDataHeader.add("Прес");
         listDataHeader.add("Біцепс");
         listDataHeader.add("Трицепс");
-        listDataHeader.add("Передпліччя");
         listDataHeader.add("Ноги");
         // Adding excercises
         List<String> plechi = Arrays.asList(getResources().getStringArray(R.array.exc_plechi));
@@ -170,7 +169,6 @@ public class ExcercisesActivity extends AppCompatActivity {
         List<String> pres = Arrays.asList(getResources().getStringArray(R.array.exc_pres));
         List<String> biceps = Arrays.asList(getResources().getStringArray(R.array.exc_biceps));
         List<String> triceps = Arrays.asList(getResources().getStringArray(R.array.exc_triceps));
-        List<String> peredplicia = Arrays.asList(getResources().getStringArray(R.array.exc_peredplicia));
         List<String> nohy = Arrays.asList(getResources().getStringArray(R.array.exc_nohy));
         listDataChild.put(listDataHeader.get(0),plechi );
         listDataChild.put(listDataHeader.get(1), spyna);
@@ -178,7 +176,6 @@ public class ExcercisesActivity extends AppCompatActivity {
         listDataChild.put(listDataHeader.get(3), pres);
         listDataChild.put(listDataHeader.get(4), biceps);
         listDataChild.put(listDataHeader.get(5), triceps);
-        listDataChild.put(listDataHeader.get(6), peredplicia);
-        listDataChild.put(listDataHeader.get(7), nohy);
+        listDataChild.put(listDataHeader.get(6), nohy);
     }
 }

@@ -29,13 +29,15 @@ public class ExcerciseDescriptionActivity extends AppCompatActivity implements
     private static final int RECOVERY_DIALOG_REQUEST = 1;
     private static final String VIDEO_ID = "fhWaJi1Hsfo";
     YouTubePlayerFragment myYouTubePlayerFragment;
-
+    public String excerciseName;
+    DatabaseHelper myDataBaseHelper = new DatabaseHelper(ExcerciseDescriptionActivity.this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_excercise_description);
-        String excerciseName = getIntent().getStringExtra("ExcerciseName");
+        excerciseName = getIntent().getStringExtra("ExcerciseName");
         setTitle(excerciseName);
+
 
         myYouTubePlayerFragment = (YouTubePlayerFragment)getFragmentManager()
                 .findFragmentById(R.id.youtubeplayerfragment);
@@ -44,10 +46,15 @@ public class ExcerciseDescriptionActivity extends AppCompatActivity implements
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DatabaseHelper myDataBaseHelper = new DatabaseHelper(ExcerciseDescriptionActivity.this);
+
         myDataBaseHelper.openDatabase();
         String text =  myDataBaseHelper.getDescription(excerciseName); //this is the method to query
         myDataBaseHelper.closeDatabase();
+ImageView dschead = (ImageView)findViewById(R.id.descheader);
+
+        String header = myDataBaseHelper.getDescriptionHeader(excerciseName);
+        int headerID = getResources().getIdentifier(header , "drawable", getPackageName());
+        dschead.setImageResource(headerID);
         TextView tv = (TextView)findViewById(R.id.exc_description_text);
         tv.setText(text);
 
@@ -98,8 +105,17 @@ public class ExcerciseDescriptionActivity extends AppCompatActivity implements
     }
 
     public void animateImage(){
-        BitmapDrawable frame1 = (BitmapDrawable)getResources().getDrawable(R.drawable.logo);
-        BitmapDrawable frame2 = (BitmapDrawable)getResources().getDrawable(R.drawable.ttiaga2);
+           String nameImg1 = myDataBaseHelper.getDescriptionAnimater(excerciseName)+"1";
+            String nameImg2 = myDataBaseHelper.getDescriptionAnimater(excerciseName)+"2";
+
+
+
+        int resID = getResources().getIdentifier(nameImg1 , "drawable", getPackageName());
+        int resID2 = getResources().getIdentifier(nameImg2 , "drawable", getPackageName());
+
+
+        BitmapDrawable frame1 = (BitmapDrawable)getResources().getDrawable(resID);
+        BitmapDrawable frame2 = (BitmapDrawable)getResources().getDrawable(resID2);
 
         AnimationDrawable mAnimation = new AnimationDrawable();
         mAnimation.setOneShot(false);

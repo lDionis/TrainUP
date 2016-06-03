@@ -120,10 +120,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         {
             img.setImageResource(R.drawable.triceps);
         }
-        else if (headerTitle =="Передпліччя")
-        {
-            img.setImageResource(R.drawable.peredplichia);
-        }
         else if (headerTitle =="Ноги")
         {
             img.setImageResource(R.drawable.nohy);
