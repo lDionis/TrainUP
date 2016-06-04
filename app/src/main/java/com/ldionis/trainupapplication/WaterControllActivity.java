@@ -7,12 +7,14 @@ import android.graphics.Color;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.SwitchCompat;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import com.ldionis.trainupapplication.database.DatabaseHelper;
@@ -27,11 +29,14 @@ public class WaterControllActivity extends AppCompatActivity {
 public  int consNum=0;
 public  int drinked=0;
 public  int waterAmount;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_water_controll);
         setTitle("Прийом води");
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        //--------------------------------
 
         //--------------------------------
         Calendar c = Calendar.getInstance();

@@ -27,6 +27,7 @@ public class MainMenuActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
         File database = getApplicationContext().getDatabasePath(DatabaseHelper.DBNAME);
         if (false == database.exists())
         {
@@ -40,7 +41,9 @@ public class MainMenuActivity extends Activity {
 
 
             }
+
         }
+
     }
 
     private boolean copyDatabase(Context context)
@@ -60,24 +63,33 @@ public class MainMenuActivity extends Activity {
             Log.w("ExcercisesActivity","DB copied");
             return  true;
         }
+
         catch (IOException e) {
             e.printStackTrace();
             return false;
         }
     }
+
     public void onButtonClickExc(View v) {
         Intent i = new Intent(MainMenuActivity.this, ExcercisesActivity.class);
         startActivity(i);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
+
     public void onButtonClickProg(View v) {
         Intent i = new Intent(MainMenuActivity.this, ProgramsActivity.class);
         startActivity(i);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
+
     public void onButtonClickRest(View v) {
         Intent i = new Intent(MainMenuActivity.this, TimerActivity.class);
         startActivity(i);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
+
     public void onButtonClickWater(View v) {
         Intent i = new Intent(MainMenuActivity.this, WaterControllActivity.class);
         startActivity(i);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }}

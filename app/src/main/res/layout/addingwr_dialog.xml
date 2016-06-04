@@ -2,19 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-
 <EditText
     android:id="@+id/email"
     android:hint="Кількість підходів"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp"/>
-        <EditText
-            android:id="@+id/password"
-            android:hint="Кількість повторень"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"/>
-
+    android:layout_marginBottom="10dp"
+    android:inputType="number"/>
+    <EditText
+    android:id="@+id/password"
+    android:hint="Кількість повторень"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:inputType="number"/>
 </LinearLayout>

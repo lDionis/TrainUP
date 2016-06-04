@@ -110,9 +110,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         return data;
     }
-    public void updateWater(int waterAmount, int userWeight, int userSex ) {
+    public void updateWater(int waterAmount, int userWeight, int userSex,int notifCheck ) {
         SQLiteDatabase db  = this.getReadableDatabase();
-        String selectQuery = "update WaterIndicator set water_amount = '"+ waterAmount + "', userWeight= '"+userWeight+"', userSex= '"+userSex+"' ";
+        String selectQuery = "update WaterIndicator set water_amount = '"+ waterAmount + "', userWeight= '"+userWeight+"', userSex= '"+userSex+"', notifCheck='"+notifCheck+"' ";
          db.execSQL(selectQuery);
     }
 
@@ -120,6 +120,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db  = this.getReadableDatabase();
         String selectQuery = "update WaterIndicator set drinkedAmount = '"+ drinkedAmount + "', drinkedAmountFull = '"+ drinkedFull + "' ";
         db.execSQL(selectQuery);
+    }
+
+    public int getWaterNotifCheck() {
+        String selectQuery = "select notifCheck from WaterIndicator ";
+        SQLiteDatabase db  = this.getReadableDatabase();
+        Cursor cursor      = db.rawQuery(selectQuery,null);
+        int data = 0;
+        if (cursor.moveToFirst()) {
+            data=  cursor.getInt(0);
+        }
+        cursor.close();
+        return data;
     }
 
     public int getWaterDrinker() {

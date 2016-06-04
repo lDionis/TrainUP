@@ -46,6 +46,7 @@ public class ProgramsActivity extends AppCompatActivity {
         getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_white_24dp);
         setTitle("Програми тренувань");
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabProg);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

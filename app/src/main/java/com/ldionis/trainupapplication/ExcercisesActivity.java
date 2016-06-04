@@ -41,17 +41,16 @@ public class ExcercisesActivity extends AppCompatActivity {
     HashMap<String, List<String>> listDataChild;
     private DatabaseHelper mDBHelper;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_excercises);
         setTitle("Вправи");
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
         getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_white_24dp);
         //------
         mDBHelper = new DatabaseHelper(this);
-
         //check exists db
         File database = getApplicationContext().getDatabasePath(DatabaseHelper.DBNAME);
         if (false == database.exists())
@@ -88,7 +87,6 @@ public class ExcercisesActivity extends AppCompatActivity {
 
             @Override
             public void onGroupExpand(int groupPosition) {
-
             }
         });
         // Listview Group collasped listener
@@ -96,8 +94,6 @@ public class ExcercisesActivity extends AppCompatActivity {
 
             @Override
             public void onGroupCollapse(int groupPosition) {
-
-
             }
         });
         // Listview on child click listener
@@ -110,12 +106,6 @@ public class ExcercisesActivity extends AppCompatActivity {
             String sds = listDataChild.get(
                         listDataHeader.get(groupPosition)).get(
                         childPosition);
-                Toast.makeText(
-                        getApplicationContext(),
-                        listDataHeader.get(groupPosition)
-                                + " : "
-                                + sds , Toast.LENGTH_SHORT)
-                        .show();
                 Intent i = new Intent(ExcercisesActivity.this, ExcerciseDescriptionActivity.class);
                 i.putExtra("ExcerciseName",sds);
                 startActivity(i);

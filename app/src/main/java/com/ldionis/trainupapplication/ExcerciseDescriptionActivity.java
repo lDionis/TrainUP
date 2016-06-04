@@ -37,13 +37,10 @@ public class ExcerciseDescriptionActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_excercise_description);
         excerciseName = getIntent().getStringExtra("ExcerciseName");
         setTitle(excerciseName);
-
         VIDEO_ID = myDataBaseHelper.getDescriptionVideo(excerciseName);
-
         myYouTubePlayerFragment = (YouTubePlayerFragment)getFragmentManager()
                 .findFragmentById(R.id.youtubeplayerfragment);
         myYouTubePlayerFragment.initialize(DEVELOPER_KEY, this);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -56,19 +53,11 @@ ImageView dschead = (ImageView)findViewById(R.id.descheader);
         String header = myDataBaseHelper.getDescriptionHeader(excerciseName);
         int headerID = getResources().getIdentifier(header , "drawable", getPackageName());
         dschead.setImageResource(headerID);
-
-
         TextView tv = (TextView)findViewById(R.id.exc_description_text);
         tv.setText(text);
-
-        //----
         animateImage();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-
-
-
-
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     @Override

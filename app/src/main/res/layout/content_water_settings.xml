@@ -95,6 +95,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Автоматичний розрахунок денної норми прийому води"/>
-
+    <View
+        android:id="@+id/separate3"
+        android:layout_below="@id/autoCalculate"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/light_gray" />
+    <TextView
+        android:id="@+id/t4"
+        android:text="Нагадування"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/separate3"
+        android:layout_marginTop="1dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <android.support.v7.widget.SwitchCompat
+        android:id="@+id/switchButton"
+        android:layout_below="@id/separate3"
+        android:layout_toRightOf="@id/t4"
+android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </RelativeLayout>
