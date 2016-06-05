@@ -53,12 +53,15 @@
             android:name="android.support.PARENT_ACTIVITY"
             android:value="com.ldionis.trainupapplication.model.ProgramsActivity" /></activity>
         <activity android:name=".WaterControllActivity"
+            android:screenOrientation="portrait"
             android:parentActivityName=".MainMenuActivity" />
         <activity android:name=".TimerActivity"
+            android:screenOrientation="portrait"
             android:parentActivityName=".MainMenuActivity"/>
         <activity
             android:name=".WaterSettingsActivity"
             android:label="@string/title_activity_water_settings"
+            android:screenOrientation="portrait"
             android:parentActivityName=".WaterControllActivity"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data

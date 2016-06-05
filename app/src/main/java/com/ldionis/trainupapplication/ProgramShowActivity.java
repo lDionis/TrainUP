@@ -33,7 +33,8 @@ public class ProgramShowActivity extends AppCompatActivity {
         adapter  = new ProgramExcerisesAdapter(this, mProgrExcerciseList);
         lvExcList.setAdapter(adapter);
 
-     ImageButton btn =(ImageButton)findViewById(R.id.mondayBtn);
+     ImageButton btnMn =(ImageButton)findViewById(R.id.mondayBtn);
+        btnMn.setImageResource(R.drawable.monday_active_24px);
 
 
     }
@@ -114,7 +115,7 @@ public class ProgramShowActivity extends AppCompatActivity {
     }
 
     public void onFridayClick(View v) {
-        mProgrExcerciseList = mdDBHelper.getProgramsExcercisesList(progName,"П`ятниця");
+        mProgrExcerciseList = mdDBHelper.getProgramsExcercisesList(progName,"Пятниця");
         adapter.updateList(mProgrExcerciseList);
         ImageButton btnMn =(ImageButton)findViewById(R.id.mondayBtn);
         ImageButton btnTu =(ImageButton)findViewById(R.id.tuesdayBtn);

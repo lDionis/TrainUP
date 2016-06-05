@@ -34,6 +34,7 @@ public class WaterSettingsActivity extends AppCompatActivity {
     public int weight=0;
     public int waterAmountNum=0;
     public  int notifCheck=0;
+    public  EditText amountWater;
     SwitchCompat switchButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +74,7 @@ public class WaterSettingsActivity extends AppCompatActivity {
         if(coefficient==35){radioSexMale.setEnabled(true);}
         else radioSexFemale.setEnabled(true);
         waterAmountNum=mDBHelper.getWaterAmount();
-        EditText amountWater = (EditText) findViewById(R.id.setWaterAmount);
+        amountWater = (EditText) findViewById(R.id.setWaterAmount);
         amountWater.setText(waterAmountNum+"");
         EditText weightType = (EditText) findViewById(R.id.setWeight);
         weight=mDBHelper.getWaterWeight();
@@ -85,6 +86,7 @@ public class WaterSettingsActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                waterAmountNum = Integer.parseInt(amountWater.getText().toString());
             mDBHelper.updateWater(waterAmountNum,weight,coefficient,notifCheck);
                 //----
                 Calendar calendar = Calendar.getInstance();
@@ -110,7 +112,7 @@ public class WaterSettingsActivity extends AppCompatActivity {
         Context context=getApplicationContext();
         LayoutInflater inflater=getLayoutInflater();
 
-        View customToastroot =inflater.inflate(R.layout.cusst_toast, null);
+        View customToastroot = inflater.inflate(R.layout.cusst_toast, null);
 
         Toast customtoast=new Toast(context);
 

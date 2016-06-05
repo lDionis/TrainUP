@@ -42,6 +42,7 @@ public class AddProgramActivity extends AppCompatActivity implements OnAddProgra
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_save_white_24dp);
         programName = (EditText)findViewById(R.id.programName);
         programName.setText("Нова програма X"+go);
+        programName.setFocusableInTouchMode(true);
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setOffscreenPageLimit(7);
         viewPager.setAdapter(new WeekdayPagerAdapter(this, this,this));

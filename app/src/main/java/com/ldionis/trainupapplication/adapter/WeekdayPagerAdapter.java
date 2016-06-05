@@ -124,7 +124,7 @@ public class WeekdayPagerAdapter extends PagerAdapter {
                             case "Вівторок" : day_of_week="Вівторок";break;
                             case "Середа" : day_of_week="Середа";break;
                             case "Четвер" : day_of_week="Четвер";break;
-                            case "П'ятниця" : day_of_week="П`ятниця";break;
+                            case "П`ятниця" : day_of_week="Пятниця";break;
                             case "Субота" : day_of_week="Субота";break;
                             case "Неділя" : day_of_week="Неділя";break;
                         }
