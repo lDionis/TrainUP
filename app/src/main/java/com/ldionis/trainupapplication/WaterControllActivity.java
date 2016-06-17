@@ -45,6 +45,8 @@ public  int waterAmount;
         getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_white_24dp);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        drinked=mDBHelper.getWaterDrinker();
+        consNum = mDBHelper.getWaterDrinkedFull();
         long last = prefs.getLong("date", 0); //If we don't have a saved value, use 0.
         c.setTimeInMillis(last);
         int lastDay = c.get(Calendar.DAY_OF_YEAR);
@@ -65,8 +67,8 @@ public  int waterAmount;
         mWaveLoadingView.setCenterTitleColor(Color.BLACK);
         mWaveLoadingView.setBottomTitleSize(18);
         waterAmount = mDBHelper.getWaterAmount();
-        mWaveLoadingView.setCenterTitle(mDBHelper.getWaterDrinkedFull()+" / "+ waterAmount+" мл");
-        mWaveLoadingView.setProgressValue(mDBHelper.getWaterDrinker());
+        mWaveLoadingView.setCenterTitle(consNum+" / "+ waterAmount+" мл");
+        mWaveLoadingView.setProgressValue(drinked);
         mWaveLoadingView.setBorderWidth(20);
         mWaveLoadingView.setAmplitudeRatio(60);
 

@@ -29,6 +29,5 @@ dependencies {
     compile 'biz.kasual:materialnumberpicker:1.2.1'
     compile 'com.flaviofaria:kenburnsview:1.0.7'
     compile 'com.github.jorgecastilloprz:fabprogresscircle:1.01@aar'
-    compile 'uk.co.barbuzz:beerprogressview:0.0.4'
     compile files('libs/YouTubeAndroidPlayerApi.jar')
 }
