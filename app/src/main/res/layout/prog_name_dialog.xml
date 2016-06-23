@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditText
+        android:id="@+id/progName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true"
+        android:hint="Назва програми"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:text=""/>
+    <Button
+        android:id="@+id/showDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:textColor="@color/coral_blue"
+        android:text="ПІДТВЕРДИТИ"/>
+</LinearLayout>

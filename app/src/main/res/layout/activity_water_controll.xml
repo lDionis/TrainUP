@@ -53,6 +53,12 @@
             android:paddingTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+            <com.andexert.library.RippleView
+                android:id="@+id/more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/more2"
+                rv_centered="true">
             <Button
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
@@ -62,6 +68,13 @@
                 android:textSize="20dp"
                 android:onClick="onButtonClick2f"
                 android:gravity="bottom|center"/>
+            </com.andexert.library.RippleView>
+            <com.andexert.library.RippleView
+                android:id="@+id/more1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/more2"
+                rv_centered="true">
             <Button
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
@@ -71,6 +84,13 @@
                 android:textSize="20dp"
                 android:gravity="bottom|center"
                 android:onClick="onButton400"/>
+            </com.andexert.library.RippleView>
+            <com.andexert.library.RippleView
+                android:id="@+id/more3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/more2"
+                rv_centered="true">
             <Button
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
@@ -80,6 +100,13 @@
                 android:textSize="20dp"
                 android:gravity="bottom|center"
                 android:onClick="onButton300"/>
+            </com.andexert.library.RippleView>
+            <com.andexert.library.RippleView
+                android:id="@+id/more4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/more2"
+                rv_centered="true">
             <Button
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
@@ -89,6 +116,13 @@
                 android:textSize="20dp"
                 android:gravity="bottom|center"
                 android:onClick="onButton150"/>
+            </com.andexert.library.RippleView>
+            <com.andexert.library.RippleView
+                android:id="@+id/more5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/more2"
+                rv_centered="true">
             <Button
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
@@ -98,6 +132,7 @@
                 android:textSize="20dp"
                 android:gravity="bottom|center"
                 android:onClick="onButton100"/>
+            </com.andexert.library.RippleView>
         </LinearLayout>
     </HorizontalScrollView>
     <View

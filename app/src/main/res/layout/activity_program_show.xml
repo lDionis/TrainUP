@@ -89,7 +89,9 @@
         android:layout_below="@+id/li"
         android:paddingTop="15dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+
+        >
 
         <ListView
 
@@ -98,8 +100,8 @@
             android:layout_height="wrap_content"
             android:divider="#ffffff"
             android:dividerHeight="1dp"
-
-
+            android:clickable="false"
+            android:listSelector="@android:color/transparent"
             />
     </RelativeLayout>
 

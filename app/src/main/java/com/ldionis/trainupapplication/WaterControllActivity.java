@@ -71,7 +71,6 @@ public  int waterAmount;
         mWaveLoadingView.setProgressValue(drinked);
         mWaveLoadingView.setBorderWidth(20);
         mWaveLoadingView.setAmplitudeRatio(60);
-
     }
 
     @Override

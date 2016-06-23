@@ -25,6 +25,7 @@ import biz.kasual.materialnumberpicker.MaterialNumberPicker;
 
 public class TimerActivity extends AppCompatActivity {
     CountDownTimer   countDownTimer;
+    MediaPlayer mp = new MediaPlayer();
 public int minuti;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,7 @@ public int minuti;
     }
     public  void onTimeSetClick(View view)
     {
+        mp.stop();
       final MaterialNumberPicker numberPicker = new MaterialNumberPicker.Builder(this)
                 .minValue(1)
                 .maxValue(60)
@@ -86,7 +88,7 @@ public int minuti;
             // 500 means, onTick function will be called at every 500 milliseconds
             ProgressBar barTimer = (ProgressBar) findViewById(R.id.barTimer);
             TextView textTimer = (TextView) findViewById(R.id.textTimer);
-            final MediaPlayer mp = new MediaPlayer();
+
             @Override
             public void onTick(long leftTimeInMilliseconds) {
                 long seconds = leftTimeInMilliseconds / 1000;
@@ -119,8 +121,9 @@ public int minuti;
                     anim.setDuration(70); //You can manage the blinking time with this parameter
                     anim.setStartOffset(20);
                     anim.setRepeatMode(Animation.REVERSE);
-                    anim.setRepeatCount(Animation.INFINITE);
+                    anim.setRepeatCount(30);
                     textTimer.startAnimation(anim);
+
                 }
                 else{
                     textTimer.setText("2:00");

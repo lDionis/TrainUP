@@ -30,7 +30,7 @@ import java.util.ArrayList;
  * Created by PC on 22.05.2016.
  */
 public class WeekdayPagerAdapter extends PagerAdapter {
-   public ArrayList<String>  selectedItems=new ArrayList<>();
+    public ArrayList<String>  selectedItems=new ArrayList<>();
     private Context mContext;
     private OnAddProgramListener listener;
     private  onDeleteProgramItemListener delListener;
@@ -73,17 +73,17 @@ public class WeekdayPagerAdapter extends PagerAdapter {
     @Override
     //тут заповнюємо ліст і решту всього
     public Object instantiateItem(ViewGroup collection, int position) {
-      final   CustomPagerEnum customPagerEnum = CustomPagerEnum.values()[position];
+        final   CustomPagerEnum customPagerEnum = CustomPagerEnum.values()[position];
 
-      final  LayoutInflater inflater = LayoutInflater.from(mContext);
+        final  LayoutInflater inflater = LayoutInflater.from(mContext);
         final ViewGroup layout = (ViewGroup) inflater.inflate(customPagerEnum.getLayoutResId(), collection, false);
         collection.addView(layout);
         DatabaseHelper myDataBaseHelper = new DatabaseHelper(mContext);
         myDataBaseHelper.openDatabase();
-       final String[] items =  myDataBaseHelper.getAllExcercise(); //this is the method to query
+        final String[] items =  myDataBaseHelper.getAllExcercise(); //this is the method to query
 
         //----
-     //   final String[] items = {"Жим лежачи","Хаммер","Станова тяга","Французький жим","Шраги зі штангою","Тяга блоку за голову сидячи","Гіперекстензія","Жим гантелей сидячи","Армійський жим"};
+        //   final String[] items = {"Жим лежачи","Хаммер","Станова тяга","Французький жим","Шраги зі штангою","Тяга блоку за голову сидячи","Гіперекстензія","Жим гантелей сидячи","Армійський жим"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(mContext, R.layout.row_layout, R.id.txt_lan,items);
         final ListView chl=(ListView)layout.findViewById(R.id.checkable_list);
         myDataBaseHelper.closeDatabase();
@@ -107,7 +107,7 @@ public class WeekdayPagerAdapter extends PagerAdapter {
 
 
 
-                    final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(mContext);
+                final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(mContext);
 
                 final ViewGroup dialogView = (ViewGroup) inflater.inflate(R.layout.addingwr_dialog, null);
                 dialogBuilder.setView(dialogView);
@@ -159,11 +159,11 @@ public class WeekdayPagerAdapter extends PagerAdapter {
                 if(chl.isItemChecked(position))
                 {final AlertDialog b = dialogBuilder.create();
                     b.show();
-                       }
+                }
                 else
                 { delListener.onDeleteDayItemExercise(selectedItem, day_of_week);
                     chl.setItemChecked(position,false);
-                   }
+                }
             }
 
         });
