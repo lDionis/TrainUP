@@ -21,11 +21,13 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.io.IOException;
+
 import biz.kasual.materialnumberpicker.MaterialNumberPicker;
 
 public class TimerActivity extends AppCompatActivity {
     CountDownTimer   countDownTimer;
-    MediaPlayer mp = new MediaPlayer();
+
 public int minuti;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +45,6 @@ public int minuti;
     }
     public  void onTimeSetClick(View view)
     {
-        mp.stop();
       final MaterialNumberPicker numberPicker = new MaterialNumberPicker.Builder(this)
                 .minValue(1)
                 .maxValue(60)
@@ -88,7 +89,7 @@ public int minuti;
             // 500 means, onTick function will be called at every 500 milliseconds
             ProgressBar barTimer = (ProgressBar) findViewById(R.id.barTimer);
             TextView textTimer = (TextView) findViewById(R.id.textTimer);
-
+            String currentSetTime = textTimer.getText().toString();
             @Override
             public void onTick(long leftTimeInMilliseconds) {
                 long seconds = leftTimeInMilliseconds / 1000;
@@ -100,7 +101,9 @@ public int minuti;
             public void onFinish() {
                 Button start =(Button) findViewById(R.id.button);
                 ImageView setTime = (ImageView)findViewById(R.id.imageView);
+                ProgressBar pb = (ProgressBar) findViewById(R.id.barTimer);
                 if(textTimer.getText().equals("00:00")){
+                    MediaPlayer mp = new MediaPlayer();
                     try {
                         AssetFileDescriptor afd;
                         afd = getAssets().openFd("alarmsong.mp3");
@@ -109,11 +112,10 @@ public int minuti;
                         mp.start();
                     } catch (IllegalStateException e) {
                         e.printStackTrace();
-                    } catch (Exception e) {
+                    } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    textTimer.setText("00:00");
-                    start.setEnabled(true);
+
                     start.setBackgroundResource(R.drawable.button_break);
                     setTime.setEnabled(true);
 
@@ -123,6 +125,9 @@ public int minuti;
                     anim.setRepeatMode(Animation.REVERSE);
                     anim.setRepeatCount(30);
                     textTimer.startAnimation(anim);
+                    textTimer.setText(currentSetTime);
+                    pb.setProgress(100);
+                    start.setEnabled(true);
 
                 }
                 else{

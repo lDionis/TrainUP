@@ -5,10 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ldionis.trainupapplication.adapter.ProgramExcerisesAdapter;
 import com.ldionis.trainupapplication.database.DatabaseHelper;
 import com.ldionis.trainupapplication.model.Excercise;
+import com.ldionis.trainupapplication.model.Program;
+import com.ldionis.trainupapplication.model.ProgramsActivity;
 
 import java.util.List;
 
@@ -18,8 +22,8 @@ public class ProgramShowActivity extends AppCompatActivity {
     private List<Excercise> mProgrExcerciseList;
     private DatabaseHelper mdDBHelper;
     private ProgramExcerisesAdapter adapter;
-    private int weekDay;
     private String progName;
+    TextView noExc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +36,11 @@ public class ProgramShowActivity extends AppCompatActivity {
         mProgrExcerciseList = mdDBHelper.getProgramsExcercisesList(progName,"Понеділок");
         adapter  = new ProgramExcerisesAdapter(this, mProgrExcerciseList);
         lvExcList.setAdapter(adapter);
-
+        noExc = (TextView)findViewById(R.id.noExcercise);
+        if(mProgrExcerciseList.isEmpty()){noExc.setVisibility(View.VISIBLE);}
+        else noExc.setVisibility(View.INVISIBLE);
      ImageButton btnMn =(ImageButton)findViewById(R.id.mondayBtn);
         btnMn.setImageResource(R.drawable.monday_active_24px);
-
-
     }
     public void onMondayClick(View v) {
         mProgrExcerciseList = mdDBHelper.getProgramsExcercisesList(progName,"Понеділок");
@@ -55,6 +59,8 @@ public class ProgramShowActivity extends AppCompatActivity {
         btnFr.setImageResource(R.drawable.friday_passive_24px);
         btnSt.setImageResource(R.drawable.saturday_passive_24px);
         btnSu.setImageResource(R.drawable.sunday_passive_24px);
+        if(mProgrExcerciseList.isEmpty()){noExc.setVisibility(View.VISIBLE);}
+        else noExc.setVisibility(View.INVISIBLE);
     }
 
     public void onTuesdayClick(View v) {
@@ -74,6 +80,8 @@ public class ProgramShowActivity extends AppCompatActivity {
         btnFr.setImageResource(R.drawable.friday_passive_24px);
         btnSt.setImageResource(R.drawable.saturday_passive_24px);
         btnSu.setImageResource(R.drawable.sunday_passive_24px);
+        if(mProgrExcerciseList.isEmpty()){noExc.setVisibility(View.VISIBLE);}
+        else noExc.setVisibility(View.INVISIBLE);
     }
 
     public void onWednesdayClick(View v) {
@@ -93,6 +101,8 @@ public class ProgramShowActivity extends AppCompatActivity {
         btnFr.setImageResource(R.drawable.friday_passive_24px);
         btnSt.setImageResource(R.drawable.saturday_passive_24px);
         btnSu.setImageResource(R.drawable.sunday_passive_24px);
+        if(mProgrExcerciseList.isEmpty()){noExc.setVisibility(View.VISIBLE);}
+        else noExc.setVisibility(View.INVISIBLE);
     }
 
     public void onThursdayClick(View v) {
@@ -112,6 +122,8 @@ public class ProgramShowActivity extends AppCompatActivity {
         btnFr.setImageResource(R.drawable.friday_passive_24px);
         btnSt.setImageResource(R.drawable.saturday_passive_24px);
         btnSu.setImageResource(R.drawable.sunday_passive_24px);
+        if(mProgrExcerciseList.isEmpty()){noExc.setVisibility(View.VISIBLE);}
+        else noExc.setVisibility(View.INVISIBLE);
     }
 
     public void onFridayClick(View v) {
@@ -131,6 +143,8 @@ public class ProgramShowActivity extends AppCompatActivity {
         btnFr.setImageResource(R.drawable.friday_active_24px);
         btnSt.setImageResource(R.drawable.saturday_passive_24px);
         btnSu.setImageResource(R.drawable.sunday_passive_24px);
+        if(mProgrExcerciseList.isEmpty()){noExc.setVisibility(View.VISIBLE);}
+        else noExc.setVisibility(View.INVISIBLE);
     }
 
     public void onSaturdayClick(View v) {
@@ -150,6 +164,8 @@ public class ProgramShowActivity extends AppCompatActivity {
         btnFr.setImageResource(R.drawable.friday_passive_24px);
         btnSt.setImageResource(R.drawable.saturday_active_24px);
         btnSu.setImageResource(R.drawable.sunday_passive_24px);
+        if(mProgrExcerciseList.isEmpty()){noExc.setVisibility(View.VISIBLE);}
+        else noExc.setVisibility(View.INVISIBLE);
     }
 
     public void onSundayClick(View v) {
@@ -169,5 +185,7 @@ public class ProgramShowActivity extends AppCompatActivity {
         btnFr.setImageResource(R.drawable.friday_passive_24px);
         btnSt.setImageResource(R.drawable.saturday_passive_24px);
         btnSu.setImageResource(R.drawable.sunday_active_24px);
+        if(mProgrExcerciseList.isEmpty()){noExc.setVisibility(View.VISIBLE);}
+        else noExc.setVisibility(View.INVISIBLE);
     }
 }

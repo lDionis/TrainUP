@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -55,6 +56,8 @@ public class ProgramsActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+
         //check exists db
         File database = getApplicationContext().getDatabasePath(DatabaseHelper.DBNAME);
         if (false == database.exists())

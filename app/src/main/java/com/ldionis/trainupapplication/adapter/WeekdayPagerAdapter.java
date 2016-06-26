@@ -78,7 +78,7 @@ public class WeekdayPagerAdapter extends PagerAdapter {
         final  LayoutInflater inflater = LayoutInflater.from(mContext);
         final ViewGroup layout = (ViewGroup) inflater.inflate(customPagerEnum.getLayoutResId(), collection, false);
         collection.addView(layout);
-        DatabaseHelper myDataBaseHelper = new DatabaseHelper(mContext);
+        final DatabaseHelper myDataBaseHelper = new DatabaseHelper(mContext);
         myDataBaseHelper.openDatabase();
         final String[] items =  myDataBaseHelper.getAllExcercise(); //this is the method to query
 
@@ -98,6 +98,7 @@ public class WeekdayPagerAdapter extends PagerAdapter {
             {
 
                 final String selectedItem=((TextView)view).getText().toString();
+
                 //check / uncheck item
                 if(selectedItems.contains(selectedItem))
                 {
@@ -106,7 +107,7 @@ public class WeekdayPagerAdapter extends PagerAdapter {
                 else selectedItems.add(selectedItem);
 
 
-
+                final String itemMuscle_group = myDataBaseHelper.getMuscleGroupForProgram(selectedItem);
                 final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(mContext);
 
                 final ViewGroup dialogView = (ViewGroup) inflater.inflate(R.layout.addingwr_dialog, null);
@@ -132,7 +133,7 @@ public class WeekdayPagerAdapter extends PagerAdapter {
                             Toast.makeText(mContext, "Ви не заповнили потрібні поля", Toast.LENGTH_SHORT).show();
                         }
                         else {if (listener != null) {
-                            listener.onAddDayExercise(selectedItem, day_of_week, edt.getText().toString(), edtX.getText().toString());
+                            listener.onAddDayExercise(selectedItem, day_of_week, edt.getText().toString(), edtX.getText().toString(),itemMuscle_group);
                         }}
                         chl.setItemChecked(position,true);
                     }

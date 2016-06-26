@@ -104,5 +104,14 @@
             android:listSelector="@android:color/transparent"
             />
     </RelativeLayout>
+    <TextView
+        android:id="@+id/noExcercise"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:gravity="center"
 
+        android:visibility="invisible"
+        android:layout_centerInParent="true"
+        android:text="На цей день\nне заплановано жодних вправ"/>
 </RelativeLayout>

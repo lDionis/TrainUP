@@ -31,8 +31,8 @@ public class AddProgramActivity extends AppCompatActivity implements OnAddProgra
     EditText programName;
     EditText prnameInput;
     @Override
-    public void onAddDayExercise(String exercise, String day, String weight, String repeats) {
-        myDataBaseHelper.insertProgramItem(programName.getText().toString(), day, exercise, weight,repeats);
+    public void onAddDayExercise(String exercise, String day, String weight, String repeats, String muscleGroup) {
+        myDataBaseHelper.insertProgramItem(programName.getText().toString(), day, exercise, weight,repeats,muscleGroup);
     }
     @Override
     public void onDeleteDayItemExercise(String exercise, String day) {

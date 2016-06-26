@@ -56,9 +56,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void insertProgramItem(String programName, String day, String exercise, String sets,String repeats) {
+    public void insertProgramItem(String programName, String day, String exercise, String sets,String repeats,String muscleGroup) {
         SQLiteDatabase db  = this.getReadableDatabase();
-        String sql="INSERT INTO TrainingPrograms(program_name,date,excercise,sets,repeat_amount) VALUES ('"+ programName + "','"+ day + "','"+ exercise + "','"+ sets + "','"+ repeats + "')";
+        String sql="INSERT INTO TrainingPrograms(program_name,date,excercise,sets,repeat_amount,muscle_group) VALUES ('"+ programName + "','"+ day + "','"+ exercise + "','"+ sets + "','"+ repeats + "','"+ muscleGroup +"')";
         db.execSQL(sql);
     }
 
@@ -227,6 +227,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return data;
     }
 
+    public String getMuscleGroupForProgram(String excerciseName) {
+        String selectQuery = "SELECT  muscle_group FROM Excercises where excercise_name = '"+ excerciseName + "' ";
+        SQLiteDatabase db  = this.getReadableDatabase();
+        Cursor cursor      = db.rawQuery(selectQuery,null);
+        String data      = null;
+        if (cursor.moveToFirst()) {
+            do {
+                data=cursor.getString(0);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return data;
+    }
+
     public List<Program> getListProgram()
     {
         Program program = null;
@@ -249,7 +263,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Excercise excercise = null;
         List<Excercise> programExcercisesList = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("Select * from TrainingPrograms where program_name='"+programName+"' and date='"+weekDay+"'",null);
+        Cursor cursor = mDatabase.rawQuery("Select * from TrainingPrograms where program_name='"+programName+"' and date='"+weekDay+"' order by muscle_group",null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast())
         {

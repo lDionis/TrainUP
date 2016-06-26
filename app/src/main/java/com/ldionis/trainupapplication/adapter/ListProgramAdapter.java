@@ -46,4 +46,10 @@ public class ListProgramAdapter extends BaseAdapter{
         tvProgramName.setText(mProgramsList.get(position).getProgram_name());
         return v;
     }
+
+    public void updateList(List<Program> lstItem) {
+        mProgramsList.clear();
+        mProgramsList.addAll(lstItem);
+        this.notifyDataSetChanged();
+    }
 }
